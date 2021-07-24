@@ -7,31 +7,61 @@ public class Tower_EnemyTracking : MonoBehaviour
     [SerializeField] Transform trackingPart;
     [SerializeField] bool canTilt = false;
 
+    [SerializeField] ParticleSystem projectiles;
+    [SerializeField] float range = 15f;
+
     // member variables
     GameObject currentTarget;
     
     // Start is called before the first frame update
     void Start()
     {
-        FindTarget();
+        FindClosestTarget();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // if there is no target or the current one is out of range, try finding a new one
+        if (!currentTarget || !IsTargetViable(currentTarget))
+        {
+            FindClosestTarget();
+        }
+
         if (currentTarget)
         {
             AimForTarget();
+            Attacking(IsTargetViable(currentTarget));
+            Debug.Log(IsTargetViable(currentTarget));
         }
+        else { Attacking(false); }
+
     }
 
-    private void FindTarget()
+    private void FindClosestTarget()
     {
-        currentTarget = FindObjectOfType<Enemy_Movement>().gameObject;
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        Enemy closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (Enemy enemy in enemies)
+        {
+            float distance = DistanceOnXZPlane(this.transform.position, enemy.transform.position);
+            
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+
+        currentTarget = closestEnemy.gameObject;
     }
 
     private void AimForTarget()
     {
+        // aim the direction
         Vector3 targetForLook = currentTarget.transform.position;
 
         if (!canTilt)
@@ -44,4 +74,33 @@ public class Tower_EnemyTracking : MonoBehaviour
         trackingPart.LookAt(targetForLook);
     }
 
+    private bool IsTargetViable(GameObject target)
+    {
+        if (!target || !target.activeInHierarchy)
+        {
+            return false;
+        }
+
+        // check if in range
+        float targetDistance = DistanceOnXZPlane(this.transform.position, target.transform.position);
+        
+        Debug.Log(targetDistance);
+
+        if (targetDistance > range) { return false; }
+
+        return true;
+    }
+
+    private void Attacking(bool isActive)
+    {
+        var emissionModule = projectiles.emission;
+        emissionModule.enabled = isActive;
+    }
+
+    private float DistanceOnXZPlane(Vector3 a, Vector3 b)
+    {
+        return Vector2.Distance(new Vector2(a.x, a.z),
+                                new Vector2(b.x, b.z));
+
+    }
 }

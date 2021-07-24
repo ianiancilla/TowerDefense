@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3205125243913863446}
   - component: {fileID: 3205125243913863444}
   - component: {fileID: 3205125243913863447}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TowerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3205125244312801016}
   - component: {fileID: 8696013177476839713}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,6 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackingPart: {fileID: 3205125243913863446}
   canTilt: 0
+  projectiles: {fileID: 4330943854452796424}
+  range: 15
 --- !u!1 &3205125244905929458
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +142,7 @@ GameObject:
   - component: {fileID: 3205125244905929454}
   - component: {fileID: 3205125244905929457}
   - component: {fileID: 3205125244905929456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TowerWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +237,7 @@ GameObject:
   - component: {fileID: 1248753681890753084}
   - component: {fileID: 4330943854452796424}
   - component: {fileID: 8106945689912849105}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Projectiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4814203400781579426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.34}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3205125244905929459}
@@ -4007,7 +4009,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 2103
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

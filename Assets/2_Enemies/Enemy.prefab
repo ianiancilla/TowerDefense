@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8108607015423715448}
   - component: {fileID: 5956209278095354154}
+  - component: {fileID: 8422600780885322641}
   - component: {fileID: 8108607015423715449}
   - component: {fileID: -2832149006578327866}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +48,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8422600780885322641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108607015423715451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28adac4998a841e4fa3e6d178b0f6569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8108607015423715449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916d0da785e97f440bac80f6fc5cc1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
+  maxHP: 10
 --- !u!1 &8108607015773497241
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +97,7 @@ GameObject:
   - component: {fileID: 8108607015773497238}
   - component: {fileID: 8108607015773497236}
   - component: {fileID: 8108607015773497239}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +180,7 @@ GameObject:
   - component: {fileID: 8108607016692735086}
   - component: {fileID: 8108607016692735089}
   - component: {fileID: 8108607016692735088}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
