@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAcceptTower: 1
-  objectToBePlaced: {fileID: 3205125244312801019, guid: acf042a8a13b315498a05e35a80d1fae,
-    type: 3}
+  tower: {fileID: -8181289777772849377, guid: acf042a8a13b315498a05e35a80d1fae, type: 3}
 --- !u!65 &3975182427180194250
 BoxCollider:
   m_ObjectHideFlags: 0

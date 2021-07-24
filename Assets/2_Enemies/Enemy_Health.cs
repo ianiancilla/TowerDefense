@@ -11,8 +11,17 @@ public class Enemy_Health : MonoBehaviour
     // member variables
     int currentHP = 0;
 
+    // cache
+    Enemy myEnemy;
 
-    // Start is called before the first frame update
+
+    private void Start()
+    {
+        // cache
+        myEnemy = GetComponent<Enemy>();
+    }
+
+
     void OnEnable()
     {
         // initialise
@@ -36,6 +45,8 @@ public class Enemy_Health : MonoBehaviour
 
     private void Die()
     {
+        myEnemy.RewardCurrency();
+
         // send back to the pool
         gameObject.SetActive(false);
     }

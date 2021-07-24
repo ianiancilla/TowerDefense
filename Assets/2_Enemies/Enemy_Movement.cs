@@ -9,6 +9,16 @@ public class Enemy_Movement : MonoBehaviour
     // member variables
     private List<Tile_Waypoint> path = new List<Tile_Waypoint>();
 
+    // cache
+    Enemy myEnemy;
+
+
+    private void Start()
+    {
+        // cache
+        myEnemy = GetComponent<Enemy>();
+    }
+
     // Update is called once per frame
     void OnEnable()
     {
@@ -53,8 +63,11 @@ public class Enemy_Movement : MonoBehaviour
 
     private void ReachEndOfPath()
     {
+        myEnemy.StealCurrency();
+
         // send back to the pool
         gameObject.SetActive(false);
+
     }
 
     private void PlaceAtStartOfPath()

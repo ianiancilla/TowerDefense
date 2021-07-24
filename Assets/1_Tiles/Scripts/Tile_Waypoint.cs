@@ -7,14 +7,14 @@ public class Tile_Waypoint : MonoBehaviour
     [SerializeField] bool canAcceptTower = true;
     public bool CanAcceptTower { get { return canAcceptTower; } }
     
-    [SerializeField] GameObject objectToBePlaced;
+    [SerializeField] Tower tower;
 
     private void OnMouseDown()
     {
         if (canAcceptTower)
         {
-            Instantiate(objectToBePlaced, transform.position, Quaternion.identity);
-            canAcceptTower = false;
+            bool isPlaced = tower.CreateTower(tower, transform.position);
+            canAcceptTower = !isPlaced;
         }
     }
 }
