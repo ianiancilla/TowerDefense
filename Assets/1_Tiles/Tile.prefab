@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3005908411194508963}
   - component: {fileID: 29354083683997673}
+  - component: {fileID: 3975182427180194250}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -45,6 +46,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b6defd98bfd1d4abeba1ca1cda2ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canAcceptTower: 1
+  objectToBePlaced: {fileID: 3205125244312801019, guid: acf042a8a13b315498a05e35a80d1fae,
+    type: 3}
+--- !u!65 &3975182427180194250
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302799799364685274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1, z: 5}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &4477956413894455393
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,8 +251,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294901760
+  m_fontColor: {r: 0, g: 0, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -309,3 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4771861cf10bb0341a7e93bf378c1e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  labelColorCanPlace: {r: 0, g: 0, b: 1, a: 1}
+  labelColorCannotPlace: {r: 1, g: 0, b: 0, a: 1}
+  toggleCoordinateLabelKey: 9
