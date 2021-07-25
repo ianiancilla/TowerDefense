@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class Enemy_Movement : MonoBehaviour
 {
     [Tooltip("Tiles per second")] [SerializeField] [Range(0f, 5f)] float speed = 1f;
@@ -36,7 +37,10 @@ public class Enemy_Movement : MonoBehaviour
         
         foreach (Transform child in pathParent.transform)
         {
-            path.Add(child.GetComponent<Tile_Waypoint>());
+            Tile_Waypoint waypoint = child.GetComponent<Tile_Waypoint>();
+
+            if (waypoint) { path.Add(waypoint); }
+            
         }
     }
     private IEnumerator FollowPath()

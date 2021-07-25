@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(TMP_Text))]
 [ExecuteAlways]
 public class Tile_CoordinateLabel : MonoBehaviour
 {
