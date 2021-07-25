@@ -8,23 +8,28 @@ using TMPro;
 public class Tile_CoordinateLabel : MonoBehaviour
 {
     // properties
-    [SerializeField] Color labelColorCanPlace = Color.blue;
-    [SerializeField] Color labelColorCannotPlace = Color.red;
+    [SerializeField] Color labelColorWalkable = Color.white;
+    [SerializeField] Color labelColorNotWalkable = Color.red;
+    [SerializeField] Color labelColorExplored = Color.yellow;
+    [SerializeField] Color labelColorPath = Color.blue;
+
     [SerializeField] KeyCode toggleCoordinateLabelKey = KeyCode.Tab;
 
     //cache
     TMP_Text label;
-    Tile_Waypoint waypoint;
+    Pathfinding_Grid grid;
+    //REMOVED Tile_Waypoint waypoint;
 
     //member variables
     Vector2Int coordinates = new Vector2Int();
-
+    Pathfinding_Node correspondingNode;
 
     private void Awake()
     {
         // cache
         label = GetComponent<TMP_Text>();
-        waypoint = GetComponentInParent<Tile_Waypoint>();
+        grid = FindObjectOfType<Pathfinding_Grid>();
+        //REMOVED waypoint = GetComponentInParent<Tile_Waypoint>();
 
 
         // initialise
@@ -52,6 +57,8 @@ public class Tile_CoordinateLabel : MonoBehaviour
     {
         coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
         coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
+
+        correspondingNode = grid.GetNode(coordinates);
     }
 
     private void UpdateLabelAndName()
@@ -64,15 +71,16 @@ public class Tile_CoordinateLabel : MonoBehaviour
 
     private void ColorCoordinatesLabel()
     {
+        if (!grid) { return; }
+        if (correspondingNode == null) { return; }
+
+
         // label color
-        if (waypoint.CanAcceptTower)
-        {
-            label.color = labelColorCanPlace;
-        }
-        else
-        {
-            label.color = labelColorCannotPlace;
-        }
+        if (!correspondingNode.isWalkable) { label.color = labelColorNotWalkable; }
+        else if (correspondingNode.isPath) { label.color = labelColorPath; }
+        else if (correspondingNode.isExplored) { label.color = labelColorExplored; }
+        else { label.color = labelColorWalkable; }
+
     }
 
     private void ToggleLabelVisibility()

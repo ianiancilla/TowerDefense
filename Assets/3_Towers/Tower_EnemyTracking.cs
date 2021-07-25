@@ -32,7 +32,6 @@ public class Tower_EnemyTracking : MonoBehaviour
         {
             AimForTarget();
             Attacking(IsTargetViable(currentTarget));
-            Debug.Log(IsTargetViable(currentTarget));
         }
         else { Attacking(false); }
 
@@ -84,8 +83,6 @@ public class Tower_EnemyTracking : MonoBehaviour
         // check if in range
         float targetDistance = DistanceOnXZPlane(this.transform.position, target.transform.position);
         
-        Debug.Log(targetDistance);
-
         if (targetDistance > range) { return false; }
 
         return true;
