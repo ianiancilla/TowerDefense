@@ -13,7 +13,7 @@ public class Pathfinder : MonoBehaviour
     Pathfinding_Node currentSearchedNode;
     Stack<Pathfinding_Node> Path = new Stack<Pathfinding_Node>();
 
-    Dictionary<Vector2Int, Pathfinding_Node> exploredDict = new Dictionary<Vector2Int, Pathfinding_Node>();
+    Dictionary<Vector2Int, Pathfinding_Node> reachedDict = new Dictionary<Vector2Int, Pathfinding_Node>();
     Queue<Pathfinding_Node> exploringQueue = new Queue<Pathfinding_Node>();
 
     Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
@@ -61,49 +61,45 @@ public class Pathfinder : MonoBehaviour
 
         // start from the first node
         exploringQueue.Enqueue(startNode);
+        reachedDict.Add(startNode.coordinates, startNode);
+
 
         // while there is still a queue
         while (exploringQueue.Count > 0 && !isDone)
         {
             // take the first queued node
             currentSearchedNode = exploringQueue.Dequeue();
-            exploredDict.Add(currentSearchedNode.coordinates, currentSearchedNode);
+            // mark node as exlored
+            currentSearchedNode.isExplored = true;
 
-            // check if it's out target
+            // check if it's our target
             if (currentSearchedNode == endNode)
             {
-                isDone = true;
                 BacktrackPath();
+                isDone = true;
+                break;
             }
 
-            // if not done, 
+            // if not done:
             foreach (Pathfinding_Node neighbour in FindNeighbours(currentSearchedNode))
             {
-                if (!exploredDict.ContainsKey(neighbour.coordinates)
-                    && !exploringQueue.Contains(neighbour))
+                if (!reachedDict.ContainsKey(neighbour.coordinates))
                 {
                     neighbour.reachedFromNode = currentSearchedNode;
                     exploringQueue.Enqueue(neighbour);
+                    reachedDict.Add(neighbour.coordinates, neighbour);
                 }
             }
-            // mark node as exlored
-            currentSearchedNode.isExplored = true;
         }
     }
 
     private void BacktrackPath()
     {
-        bool pathCompleted = false;
-        while (!pathCompleted)
+        do 
         {
             Path.Push(currentSearchedNode);
             currentSearchedNode.isPath = true;
             currentSearchedNode = currentSearchedNode.reachedFromNode;
-
-            if (currentSearchedNode == startNode)
-            {
-                pathCompleted = true;
-            }
-        }
+        } while (currentSearchedNode != null);
     }
 }
