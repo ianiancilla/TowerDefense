@@ -7,12 +7,11 @@ public class Pathfinding_Node
 {
     // member variables
     public Vector2Int coordinates;
-    public bool isWalkable;
 
-    // algorithm variables
-    public bool isExplored;
-    public bool isPath;
-    public Pathfinding_Node connectedTo;
+    public bool isWalkable;
+    public bool isExplored = false;
+    public bool isPath = false;
+    public Pathfinding_Node reachedFromNode;
 
     // constructor
     public Pathfinding_Node(Vector2Int coordinates, bool isWalkable)

@@ -18,8 +18,7 @@ public class Tower : MonoBehaviour
             bank.Withdraw(placementCost);
             return true;
         }
-
+        // if it could not be placed at all
         return false;
-
     }
 }

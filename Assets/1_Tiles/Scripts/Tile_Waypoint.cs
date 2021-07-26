@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Tile_Waypoint : MonoBehaviour
 {
-    [SerializeField] bool canAcceptTower = true;
-    public bool CanAcceptTower { get { return canAcceptTower; } }
-    
+//    [SerializeField] bool canAcceptTower = true;    
     [SerializeField] Tower tower;
+
+    bool canAcceptTower = true;
+    public bool CanAcceptTower { get { return canAcceptTower; } }
 
     private void OnMouseDown()
     {

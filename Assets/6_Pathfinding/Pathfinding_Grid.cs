@@ -8,8 +8,8 @@ public class Pathfinding_Grid : MonoBehaviour
     [SerializeField] Vector2Int gridSize;
 
     // member variables
-    Dictionary<Vector2Int, Pathfinding_Node> grid = new Dictionary<Vector2Int, Pathfinding_Node>();
-    public Dictionary<Vector2Int, Pathfinding_Node> Grid { get { return grid; } }
+    Dictionary<Vector2Int, Pathfinding_Node> gridDict = new Dictionary<Vector2Int, Pathfinding_Node>();
+    public Dictionary<Vector2Int, Pathfinding_Node> GridDict { get { return gridDict; } }
 
     private void Awake()
     {
@@ -28,20 +28,17 @@ public class Pathfinding_Grid : MonoBehaviour
                 Pathfinding_Node newNode = new Pathfinding_Node(worldPos,
                                                                 true);
 
-                grid.Add(worldPos, newNode);
+                gridDict[worldPos] = newNode;
             }
-
         }
-
     }
 
     public Pathfinding_Node GetNode(Vector2Int coordinates)
     {
-        if (grid.ContainsKey(coordinates))
+        if (gridDict.ContainsKey(coordinates))
         {
-            return grid[coordinates];
+            return gridDict[coordinates];
         }
-
         return null;
     }
 

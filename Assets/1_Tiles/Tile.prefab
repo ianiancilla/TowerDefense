@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b6defd98bfd1d4abeba1ca1cda2ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canAcceptTower: 1
   tower: {fileID: -8181289777772849377, guid: acf042a8a13b315498a05e35a80d1fae, type: 3}
 --- !u!65 &3975182427180194250
 BoxCollider:
@@ -241,7 +240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (0, 0)
+  m_text: (4, 3)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -250,8 +249,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294901760
-  m_fontColor: {r: 0, g: 0, b: 1, a: 1}
+    rgba: 4278255612
+  m_fontColor: {r: 0.9887359, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -325,6 +324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4771861cf10bb0341a7e93bf378c1e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  labelColorCanPlace: {r: 0, g: 0, b: 1, a: 1}
-  labelColorCannotPlace: {r: 1, g: 0, b: 0, a: 1}
+  labelColorWalkable: {r: 1, g: 1, b: 1, a: 1}
+  labelColorNotWalkable: {r: 1, g: 0, b: 0, a: 1}
+  labelColorExplored: {r: 0.5665137, g: 0.015686274, b: 1, a: 1}
+  labelColorPath: {r: 0, g: 0, b: 1, a: 1}
   toggleCoordinateLabelKey: 9
