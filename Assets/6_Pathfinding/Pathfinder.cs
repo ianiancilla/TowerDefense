@@ -11,6 +11,7 @@ public class Pathfinder : MonoBehaviour
     Pathfinding_Node startNode;
     Pathfinding_Node endNode;
     Pathfinding_Node currentSearchedNode;
+    Stack<Pathfinding_Node> Path = new Stack<Pathfinding_Node>();
 
     Dictionary<Vector2Int, Pathfinding_Node> exploredDict = new Dictionary<Vector2Int, Pathfinding_Node>();
     Queue<Pathfinding_Node> exploringQueue = new Queue<Pathfinding_Node>();
@@ -69,9 +70,10 @@ public class Pathfinder : MonoBehaviour
             exploredDict.Add(currentSearchedNode.coordinates, currentSearchedNode);
 
             // check if it's out target
-            if (currentSearchedNode.coordinates == endCoordinates)
+            if (currentSearchedNode == endNode)
             {
                 isDone = true;
+                BacktrackPath();
             }
 
             // if not done, 
@@ -86,6 +88,22 @@ public class Pathfinder : MonoBehaviour
             }
             // mark node as exlored
             currentSearchedNode.isExplored = true;
+        }
+    }
+
+    private void BacktrackPath()
+    {
+        bool pathCompleted = false;
+        while (!pathCompleted)
+        {
+            Path.Push(currentSearchedNode);
+            currentSearchedNode.isPath = true;
+            currentSearchedNode = currentSearchedNode.reachedFromNode;
+
+            if (currentSearchedNode == startNode)
+            {
+                pathCompleted = true;
+            }
         }
     }
 }
