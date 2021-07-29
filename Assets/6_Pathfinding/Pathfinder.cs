@@ -19,22 +19,19 @@ public class Pathfinder : MonoBehaviour
     Vector2Int[] directions = { Vector2Int.right, Vector2Int.left, Vector2Int.up, Vector2Int.down };
 
     // cache
-    Dictionary<Vector2Int, Pathfinding_Node> gridDict;
+    Pathfinding_GridManager gridManager;
 
     private void Awake()
     {
         // cache
-         gridDict = FindObjectOfType<Pathfinding_Grid>().GridDict;
-
+         gridManager = FindObjectOfType<Pathfinding_GridManager>();
     }
 
     private void Start()
     {
         // intialise
-        startNode = gridDict[startCoordinates];
-        endNode = gridDict[endCoordinates];
-
-
+        startNode = gridManager.GetNode(startCoordinates);
+        endNode = gridManager.GetNode(endCoordinates);
 
         BreadthFirstSearch();
     }
@@ -46,9 +43,9 @@ public class Pathfinder : MonoBehaviour
         foreach (Vector2Int direction in directions)
         {
             Vector2Int investigatedCoordinates = currentNode.coordinates + direction;
-            if (gridDict.ContainsKey(investigatedCoordinates))
+            if (gridManager.GetNode(investigatedCoordinates) != null)                
             {
-                neighbours.Add(gridDict[investigatedCoordinates]);
+                neighbours.Add(gridManager.GetNode(investigatedCoordinates));
             }
         }
 
@@ -58,6 +55,11 @@ public class Pathfinder : MonoBehaviour
     private void BreadthFirstSearch()
     {
         bool isDone = false;
+
+        
+
+        reachedDict.Clear();
+        exploringQueue.Clear();
 
         // start from the first node
         exploringQueue.Enqueue(startNode);

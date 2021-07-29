@@ -20,13 +20,13 @@ public class Tile_CoordinateLabel : MonoBehaviour
 
     //cache
     TMP_Text label;
-    Pathfinding_Grid grid;
+    Pathfinding_GridManager grid;
 
     private void OnEnable()
     {
         // cache
         label = GetComponent<TMP_Text>();
-        grid = FindObjectOfType<Pathfinding_Grid>();
+        grid = FindObjectOfType<Pathfinding_GridManager>();
 
         // initialise
         UpdateCoordinatesAndNodeLink();
@@ -52,8 +52,9 @@ public class Tile_CoordinateLabel : MonoBehaviour
 
     private void UpdateCoordinatesAndNodeLink()
     {
-        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
-        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
+        if (grid == null) { return; }
+        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / grid.GridUnitSize);
+        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / grid.GridUnitSize);
 
         if (!grid.GridDict.ContainsKey(coordinates))
         {

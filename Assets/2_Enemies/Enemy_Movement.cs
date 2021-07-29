@@ -8,7 +8,7 @@ public class Enemy_Movement : MonoBehaviour
     [Tooltip("Tiles per second")] [SerializeField] [Range(0f, 5f)] float speed = 1f;
 
     // member variables
-    private List<Tile_Waypoint> path = new List<Tile_Waypoint>();
+    private List<Tile> path = new List<Tile>();
 
     // cache
     Enemy myEnemy;
@@ -37,7 +37,7 @@ public class Enemy_Movement : MonoBehaviour
         
         foreach (Transform child in pathParent.transform)
         {
-            Tile_Waypoint waypoint = child.GetComponent<Tile_Waypoint>();
+            Tile waypoint = child.GetComponent<Tile>();
 
             if (waypoint) { path.Add(waypoint); }
             
@@ -45,7 +45,7 @@ public class Enemy_Movement : MonoBehaviour
     }
     private IEnumerator FollowPath()
     {
-        foreach (Tile_Waypoint waypoint in path)
+        foreach (Tile waypoint in path)
         {
             Vector3 startingPosition = transform.position;
             Vector3 targetPosition = waypoint.transform.position;
