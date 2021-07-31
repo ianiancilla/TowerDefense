@@ -14,10 +14,13 @@ public class Tile : MonoBehaviour
 
     // cache
     Pathfinding_GridManager gridManager;
+    Pathfinder pathfinder;
 
     private void Awake()
     {
+        // cache
         gridManager = FindObjectOfType<Pathfinding_GridManager>();
+        pathfinder = FindObjectOfType<Pathfinder>();
     }
 
     private void Start()
@@ -28,18 +31,22 @@ public class Tile : MonoBehaviour
 
             if (!CanAcceptTower)
             {
-                gridManager.BlockNode(coordinates);
+                gridManager.SetWalkable(coordinates, false);
             }
         }
-
     }
 
     private void OnMouseDown()
     {
-        if (canAcceptTower)
+        if (gridManager.GetNode(coordinates) == null) { return; }
+
+        // if node is accessible and would not block path entirely
+        if (gridManager.GetNode(coordinates).isWalkable
+            && !pathfinder.WillBlockPath(coordinates))
         {
-            bool isPlaced = tower.CreateTower(tower, transform.position);
-            
+            bool isPlaced = true;//tower.CreateTower(tower, transform.position);
+            gridManager.SetWalkable(coordinates, !isPlaced);
+            pathfinder.ResetPath();
         }
     }
 }

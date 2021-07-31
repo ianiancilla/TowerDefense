@@ -47,11 +47,11 @@ public class Pathfinding_GridManager : MonoBehaviour
         return null;
     }
 
-    public void BlockNode (Vector2Int coordinates)
+    public void SetWalkable (Vector2Int coordinates, bool newWalkable)
     {
         if (gridDict.ContainsKey(coordinates))
         {
-            gridDict[coordinates].isWalkable = false;
+            gridDict[coordinates].isWalkable = newWalkable;
         }
     }
 

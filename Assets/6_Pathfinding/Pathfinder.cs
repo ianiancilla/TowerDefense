@@ -11,7 +11,7 @@ public class Pathfinder : MonoBehaviour
     Pathfinding_Node startNode;
     Pathfinding_Node endNode;
     Pathfinding_Node currentSearchedNode;
-    Stack<Pathfinding_Node> Path = new Stack<Pathfinding_Node>();
+    Stack<Pathfinding_Node> path = new Stack<Pathfinding_Node>();
 
     Dictionary<Vector2Int, Pathfinding_Node> reachedDict = new Dictionary<Vector2Int, Pathfinding_Node>();
     Queue<Pathfinding_Node> exploringQueue = new Queue<Pathfinding_Node>();
@@ -33,30 +33,14 @@ public class Pathfinder : MonoBehaviour
         startNode = gridManager.GetNode(startCoordinates);
         endNode = gridManager.GetNode(endCoordinates);
 
-        BreadthFirstSearch();
+        ResetPath();
     }
 
-    private List<Pathfinding_Node> FindNeighbours(Pathfinding_Node currentNode)
-    {
-        List<Pathfinding_Node> neighbours = new List<Pathfinding_Node>();
-
-        foreach (Vector2Int direction in directions)
-        {
-            Vector2Int investigatedCoordinates = currentNode.coordinates + direction;
-            if (gridManager.GetNode(investigatedCoordinates) != null)                
-            {
-                neighbours.Add(gridManager.GetNode(investigatedCoordinates));
-            }
-        }
-
-        return neighbours;
-    }
-
-    private void BreadthFirstSearch()
+    private Stack<Pathfinding_Node> GetPath_BreadthFirstSearch()
     {
         bool isDone = false;
 
-        
+        Stack<Pathfinding_Node> tempPath = new Stack<Pathfinding_Node>();
 
         reachedDict.Clear();
         exploringQueue.Clear();
@@ -77,15 +61,16 @@ public class Pathfinder : MonoBehaviour
             // check if it's our target
             if (currentSearchedNode == endNode)
             {
-                BacktrackPath();
+                // backtrack the path to fill stack then exit
+                tempPath = BacktrackPath(currentSearchedNode);
                 isDone = true;
                 break;
             }
 
-            // if not done:
+            // if not finished, explore new neighbours:
             foreach (Pathfinding_Node neighbour in FindNeighbours(currentSearchedNode))
             {
-                if (!reachedDict.ContainsKey(neighbour.coordinates))
+                if (!reachedDict.ContainsKey(neighbour.coordinates) && neighbour.isWalkable)
                 {
                     neighbour.reachedFromNode = currentSearchedNode;
                     exploringQueue.Enqueue(neighbour);
@@ -93,15 +78,73 @@ public class Pathfinder : MonoBehaviour
                 }
             }
         }
+
+        return tempPath;
     }
 
-    private void BacktrackPath()
+    private Stack<Pathfinding_Node> BacktrackPath(Pathfinding_Node currentNode)
     {
+        Stack<Pathfinding_Node> tempPath = new Stack<Pathfinding_Node>();
+
         do 
         {
-            Path.Push(currentSearchedNode);
-            currentSearchedNode.isPath = true;
-            currentSearchedNode = currentSearchedNode.reachedFromNode;
-        } while (currentSearchedNode != null);
+            tempPath.Push(currentNode);
+            currentNode.isPath = true;
+            currentNode = currentNode.reachedFromNode;
+        } while (currentNode != null);
+
+        return tempPath;
+    }
+
+    private List<Pathfinding_Node> FindNeighbours(Pathfinding_Node currentNode)
+    {
+        List<Pathfinding_Node> neighbours = new List<Pathfinding_Node>();
+
+        foreach (Vector2Int direction in directions)
+        {
+            Vector2Int investigatedCoordinates = currentNode.coordinates + direction;
+            if (gridManager.GetNode(investigatedCoordinates) != null)
+            {
+                neighbours.Add(gridManager.GetNode(investigatedCoordinates));
+            }
+        }
+
+        return neighbours;
+    }
+
+    private void SetPath()
+    {
+        foreach (Pathfinding_Node node in path)
+        {
+            node.isPath = true;
+        }
+    }
+
+    /// <summary>
+    /// Checks if blocking a given tile will make the startpoint > endpoint path set
+    /// in the Pathfinder script impossible.
+    /// </summary>
+    /// <param name="coordinates">Tile coordinates of the tile which would be blocked.</param>
+    /// <returns></returns>
+    public bool WillBlockPath(Vector2Int coordinates)
+    {
+        if (gridManager.GetNode(coordinates) == null) { return false; }
+
+        // temporarily sets as unwalkable, checks for new path, sets it back
+        bool previousWalkableState = gridManager.GetNode(coordinates).isWalkable;
+        gridManager.SetWalkable(coordinates, false);
+        var tempPath = GetPath_BreadthFirstSearch();
+
+        gridManager.SetWalkable(coordinates, previousWalkableState);
+
+        if (tempPath.Count <= 1) { return true; }
+        else { return false; }
+    }
+    
+    public void ResetPath()
+    {
+        gridManager.ResetPathfindingProperties();
+        path = GetPath_BreadthFirstSearch();
+        SetPath();
     }
 }
