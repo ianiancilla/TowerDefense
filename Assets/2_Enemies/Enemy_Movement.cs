@@ -8,47 +8,42 @@ public class Enemy_Movement : MonoBehaviour
     [Tooltip("Tiles per second")] [SerializeField] [Range(0f, 5f)] float speed = 1f;
 
     // member variables
-    private List<Tile> path = new List<Tile>();
+    private List<Pathfinding_Node> path = new List<Pathfinding_Node>();
 
     // cache
     Enemy myEnemy;
+    Pathfinding_GridManager gridManager;
+    Pathfinder pathfinder;
 
 
-    private void Start()
+    private void Awake()
     {
         // cache
         myEnemy = GetComponent<Enemy>();
+        gridManager = FindObjectOfType<Pathfinding_GridManager>();
+        pathfinder = FindObjectOfType<Pathfinder>();
     }
 
     // Update is called once per frame
     void OnEnable()
     {
         // initialise
-        FindPath();
-        PlaceAtStartOfPath();
+        RecalculatePath();
+        ResetMovementOnNewPath();
         StartCoroutine(FollowPath());
     }
 
-    private void FindPath()
+    private void RecalculatePath()
     {
         path.Clear();
-
-        GameObject pathParent = GameObject.FindGameObjectWithTag("EnemyPath");
-        
-        foreach (Transform child in pathParent.transform)
-        {
-            Tile waypoint = child.GetComponent<Tile>();
-
-            if (waypoint) { path.Add(waypoint); }
-            
-        }
+        path = pathfinder.GetPath_BreadthFirstSearch();
     }
     private IEnumerator FollowPath()
     {
-        foreach (Tile waypoint in path)
+        for (int i = 0; i < path.Count; i++)
         {
             Vector3 startingPosition = transform.position;
-            Vector3 targetPosition = waypoint.transform.position;
+            Vector3 targetPosition = gridManager.GetWorldPosFromGridCoordinates(path[i].coordinates);
 
             transform.LookAt(targetPosition);
 
@@ -61,7 +56,6 @@ public class Enemy_Movement : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
-
         ReachEndOfPath();
     }
 
@@ -74,8 +68,8 @@ public class Enemy_Movement : MonoBehaviour
 
     }
 
-    private void PlaceAtStartOfPath()
+    private void ResetMovementOnNewPath()
     {
-        transform.position = path[0].transform.position;
+        transform.position = gridManager.GetWorldPosFromGridCoordinates(path[0].coordinates);
     }
 }

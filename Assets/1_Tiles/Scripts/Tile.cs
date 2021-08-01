@@ -46,7 +46,8 @@ public class Tile : MonoBehaviour
         {
             bool isPlaced = true;//tower.CreateTower(tower, transform.position);
             gridManager.SetWalkable(coordinates, !isPlaced);
-            pathfinder.ResetPath();
+            pathfinder.SetNewPath();
+            pathfinder.BroadcastRecalculatePath();
         }
     }
 }

@@ -11,7 +11,7 @@ public class Pathfinder : MonoBehaviour
     Pathfinding_Node startNode;
     Pathfinding_Node endNode;
     Pathfinding_Node currentSearchedNode;
-    Stack<Pathfinding_Node> path = new Stack<Pathfinding_Node>();
+    List<Pathfinding_Node> path = new List<Pathfinding_Node>();
 
     Dictionary<Vector2Int, Pathfinding_Node> reachedDict = new Dictionary<Vector2Int, Pathfinding_Node>();
     Queue<Pathfinding_Node> exploringQueue = new Queue<Pathfinding_Node>();
@@ -25,29 +25,30 @@ public class Pathfinder : MonoBehaviour
     {
         // cache
          gridManager = FindObjectOfType<Pathfinding_GridManager>();
-    }
 
-    private void Start()
-    {
         // intialise
         startNode = gridManager.GetNode(startCoordinates);
         endNode = gridManager.GetNode(endCoordinates);
 
-        ResetPath();
+        SetNewPath();
     }
 
-    private Stack<Pathfinding_Node> GetPath_BreadthFirstSearch()
+    private void Start()
+    {
+    }
+
+    public List<Pathfinding_Node> GetPath_BreadthFirstSearch()
     {
         bool isDone = false;
 
-        Stack<Pathfinding_Node> tempPath = new Stack<Pathfinding_Node>();
+        List<Pathfinding_Node> tempPath = new List<Pathfinding_Node>();
 
         reachedDict.Clear();
         exploringQueue.Clear();
 
         // start from the first node
         exploringQueue.Enqueue(startNode);
-        reachedDict.Add(startNode.coordinates, startNode);
+        reachedDict.Add(startCoordinates, startNode);
 
 
         // while there is still a queue
@@ -82,16 +83,64 @@ public class Pathfinder : MonoBehaviour
         return tempPath;
     }
 
-    private Stack<Pathfinding_Node> BacktrackPath(Pathfinding_Node currentNode)
+    public List<Pathfinding_Node> GetPath_BreadthFirstSearch(Vector2Int startPointGridCoordinates)
     {
-        Stack<Pathfinding_Node> tempPath = new Stack<Pathfinding_Node>();
+        bool isDone = false;
+
+        List<Pathfinding_Node> tempPath = new List<Pathfinding_Node>();
+
+        reachedDict.Clear();
+        exploringQueue.Clear();
+
+        // start from the first node
+        exploringQueue.Enqueue(gridManager.GetNode(startPointGridCoordinates));
+        reachedDict.Add(startPointGridCoordinates, gridManager.GetNode(startPointGridCoordinates));
+
+
+        // while there is still a queue
+        while (exploringQueue.Count > 0 && !isDone)
+        {
+            // take the first queued node
+            currentSearchedNode = exploringQueue.Dequeue();
+            // mark node as exlored
+            currentSearchedNode.isExplored = true;
+
+            // check if it's our target
+            if (currentSearchedNode == endNode)
+            {
+                // backtrack the path to fill stack then exit
+                tempPath = BacktrackPath(currentSearchedNode);
+                isDone = true;
+                break;
+            }
+
+            // if not finished, explore new neighbours:
+            foreach (Pathfinding_Node neighbour in FindNeighbours(currentSearchedNode))
+            {
+                if (!reachedDict.ContainsKey(neighbour.coordinates) && neighbour.isWalkable)
+                {
+                    neighbour.reachedFromNode = currentSearchedNode;
+                    exploringQueue.Enqueue(neighbour);
+                    reachedDict.Add(neighbour.coordinates, neighbour);
+                }
+            }
+        }
+
+        return tempPath;
+    }
+
+    private List<Pathfinding_Node> BacktrackPath(Pathfinding_Node currentNode)
+    {
+        List<Pathfinding_Node> tempPath = new List<Pathfinding_Node>();
 
         do 
         {
-            tempPath.Push(currentNode);
+            tempPath.Add(currentNode);
             currentNode.isPath = true;
             currentNode = currentNode.reachedFromNode;
         } while (currentNode != null);
+
+        tempPath.Reverse();
 
         return tempPath;
     }
@@ -112,7 +161,7 @@ public class Pathfinder : MonoBehaviour
         return neighbours;
     }
 
-    private void SetPath()
+    private void SetNodesAsPath()
     {
         foreach (Pathfinding_Node node in path)
         {
@@ -141,10 +190,15 @@ public class Pathfinder : MonoBehaviour
         else { return false; }
     }
     
-    public void ResetPath()
+    public void SetNewPath()
     {
         gridManager.ResetPathfindingProperties();
         path = GetPath_BreadthFirstSearch();
-        SetPath();
+        SetNodesAsPath();
+    }
+
+    public void BroadcastRecalculatePath()
+    {
+        BroadcastMessage("RecalculatePath", SendMessageOptions.DontRequireReceiver);
     }
 }
