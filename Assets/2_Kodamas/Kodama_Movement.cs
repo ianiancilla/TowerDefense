@@ -37,15 +37,19 @@ public class Kodama_Movement : MonoBehaviour
 
         // get new shortest path
         path.Clear();
-        Vector2Int currentCoordinates = gridManager.GetGridCoordinatesFromWorldPos(transform.position);
+        Vector2Int currentCoordinates = gridManager.GetGridCoordinatesFromWorldPos(
+                                                                transform.position);
         path = pathfinder.GetPath_BreadthFirstSearch(currentCoordinates);
+        Debug.Log("recalculate");
+        Debug.Log(path.Count);
+        foreach (Pathfinding_Node node in path) { Debug.Log(node.coordinates); }
 
         // start on new path
         StartCoroutine(FollowPath());
     }
     private IEnumerator FollowPath()
     {
-        for (int i = 0; i < path.Count; i++)
+        for (int i = 1; i < path.Count; i++)
         {
             Vector3 startingPosition = transform.position;
             Vector3 targetPosition = gridManager.GetWorldPosFromGridCoordinates(path[i].coordinates);

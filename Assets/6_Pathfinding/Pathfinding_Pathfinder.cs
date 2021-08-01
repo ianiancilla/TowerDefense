@@ -13,17 +13,18 @@ public class Pathfinding_Pathfinder : MonoBehaviour
 
     // cache
     Pathfinding_GridManager gridManager;
+    Kodama[] kodamas;
 
     private void Awake()
     {
         // cache
         gridManager = FindObjectOfType<Pathfinding_GridManager>();
+        kodamas = FindObjectsOfType<Kodama>();
 
         // find Shrine
         GameObject shrine = GameObject.FindGameObjectWithTag("Shrine");
         endCoordinates = gridManager.GetGridCoordinatesFromWorldPos(shrine.transform.position);
-        endNode = gridManager.GetNode(endCoordinates);
-
+        endNode = gridManager.GetNode(endCoordinates);        
     }
 
     public List<Pathfinding_Node> GetPath_BreadthFirstSearch(Vector2Int startPointGridCoordinates)
@@ -124,15 +125,46 @@ public class Pathfinding_Pathfinder : MonoBehaviour
     }
 
     /// <summary>
+    /// Checks if blocking a given tile will completely prefeny any of the Kodama from reaching
+    /// the shrine.
+    /// </summary>
+    /// <param name="blockedCoordinates">Tile coordinates of the tile which would be blocked.</param>
+    /// <returns></returns>
+    public bool WillBlockAnyPath(Vector2Int blockedCoordinates)
+    {
+        if (gridManager.GetNode(blockedCoordinates) == null) { return false; }
+
+        bool willBlockPath = false;
+
+        foreach (Kodama kodama in kodamas)
+        {
+            // if it's already arrived
+            if (!kodama.gameObject.activeSelf) { continue; }
+
+            Vector2Int currentCoordinates = gridManager.GetGridCoordinatesFromWorldPos(
+                                                kodama.transform.position);
+
+            // if it's already in the arrival tile
+            if (currentCoordinates == endCoordinates) { continue; }
+
+            if (WillBlockPath(blockedCoordinates, currentCoordinates))
+            {
+                willBlockPath = true;
+                break;
+            }
+        }
+        return willBlockPath;
+    }
+
+    /// <summary>
     /// Checks if blocking a given tile will make the current point > endpoint path set
     /// in the Pathfinder script impossible.
     /// </summary>
     /// <param name="blockedCoordinates">Tile coordinates of the tile which would be blocked.</param>
+    /// <param name="startPointOfCheck">Tile coordinates stzart of the path to check.</param>
     /// <returns></returns>
-    public bool WillBlockPath(Vector2Int blockedCoordinates, Vector2Int startPointOfCheck)
+    private bool WillBlockPath(Vector2Int blockedCoordinates, Vector2Int startPointOfCheck)
     {
-        if (gridManager.GetNode(blockedCoordinates) == null) { return false; }
-
         // temporarily sets as unwalkable, checks for new path, sets it back
         bool previousWalkableState = gridManager.GetNode(blockedCoordinates).isWalkable;
         gridManager.SetWalkable(blockedCoordinates, false);
@@ -144,9 +176,11 @@ public class Pathfinding_Pathfinder : MonoBehaviour
         if (tempPath.Count <= 1) { return true; }
         else { return false; }
     }
-    
+
     public void BroadcastRecalculatePath()
     {
+        Debug.Log("recalculate message");
+
         BroadcastMessage("RecalculatePath", SendMessageOptions.DontRequireReceiver);
     }
 }

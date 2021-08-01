@@ -36,19 +36,18 @@ public class Tile : MonoBehaviour
         }
     }
 
-    //private void OnMouseDown()
-    //{
-    //    if (gridManager.GetNode(coordinates) == null) { return; }
+    private void OnMouseDown()
+    {
+        if (gridManager.GetNode(coordinates) == null) { return; }
 
-    //    // if node is accessible and would not block path entirely
-    //    if (gridManager.GetNode(coordinates).isWalkable
-    //        && !pathfinder.WillBlockPath(coordinates))
-    //    {
-    //        bool isPlaced = true;//tower.CreateTower(tower, transform.position);
-    //        gridManager.SetWalkable(coordinates, !isPlaced);
-    //        pathfinder.SetNewPath();
-    //        pathfinder.BroadcastRecalculatePath();
-    //    }
-    //}
+        // if node is accessible and would not block path entirely
+        if (gridManager.GetNode(coordinates).isWalkable
+            && !pathfinder.WillBlockAnyPath(coordinates))
+        {
+            bool isPlaced = true;
+            gridManager.SetWalkable(coordinates, !isPlaced);
+            pathfinder.BroadcastRecalculatePath();
+        }
+    }
 
 }
