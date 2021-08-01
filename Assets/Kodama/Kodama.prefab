@@ -768,11 +768,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7847037868704780493}
   - component: {fileID: 7740841276963197291}
-  - component: {fileID: 6381114254923888480}
+  - component: {fileID: 3613161549845400764}
   - component: {fileID: 1554919620782341009}
   - component: {fileID: 687925905576961745}
   m_Layer: 0
-  m_Name: kodama_textured@T-Pose
+  m_Name: Kodama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,7 +813,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6381114254923888480
+--- !u!114 &3613161549845400764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7470794418851646071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28adac4998a841e4fa3e6d178b0f6569, type: 3}
+  m_Script: {fileID: 11500000, guid: 03e61e4be2ae7184d826f25f291d1078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currencyReward: 10

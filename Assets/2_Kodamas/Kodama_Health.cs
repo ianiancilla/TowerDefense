@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
-public class Enemy_Health : MonoBehaviour
+[RequireComponent(typeof(Kodama))]
+public class Kodama_Health : MonoBehaviour
 {
     // properties
     [SerializeField] int maxHP = 20;
@@ -13,13 +13,13 @@ public class Enemy_Health : MonoBehaviour
     int currentHP = 0;
 
     // cache
-    Enemy myEnemy;
+    Kodama myEnemy;
 
 
     private void Start()
     {
         // cache
-        myEnemy = GetComponent<Enemy>();
+        myEnemy = GetComponent<Kodama>();
     }
 
 

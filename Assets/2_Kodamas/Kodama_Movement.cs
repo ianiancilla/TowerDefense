@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
-public class Enemy_Movement : MonoBehaviour
+[RequireComponent(typeof(Kodama))]
+public class Kodama_Movement : MonoBehaviour
 {
     [Tooltip("Tiles per second")] [SerializeField] [Range(0f, 5f)] float speed = 1f;
 
@@ -11,32 +11,37 @@ public class Enemy_Movement : MonoBehaviour
     private List<Pathfinding_Node> path = new List<Pathfinding_Node>();
 
     // cache
-    Enemy myEnemy;
     Pathfinding_GridManager gridManager;
-    Pathfinder pathfinder;
+    Pathfinding_Pathfinder pathfinder;
 
 
     private void Awake()
     {
         // cache
-        myEnemy = GetComponent<Enemy>();
         gridManager = FindObjectOfType<Pathfinding_GridManager>();
-        pathfinder = FindObjectOfType<Pathfinder>();
+        pathfinder = FindObjectOfType<Pathfinding_Pathfinder>();
     }
 
     // Update is called once per frame
-    void OnEnable()
+    void Start()
     {
         // initialise
         RecalculatePath();
-        ResetMovementOnNewPath();
         StartCoroutine(FollowPath());
     }
 
     private void RecalculatePath()
     {
+        // stop following old path
+        StopAllCoroutines();
+
+        // get new shortest path
         path.Clear();
-        path = pathfinder.GetPath_BreadthFirstSearch();
+        Vector2Int currentCoordinates = gridManager.GetGridCoordinatesFromWorldPos(transform.position);
+        path = pathfinder.GetPath_BreadthFirstSearch(currentCoordinates);
+
+        // start on new path
+        StartCoroutine(FollowPath());
     }
     private IEnumerator FollowPath()
     {
@@ -61,15 +66,8 @@ public class Enemy_Movement : MonoBehaviour
 
     private void ReachEndOfPath()
     {
-        myEnemy.StealCurrency();
-
         // send back to the pool
         gameObject.SetActive(false);
-
     }
 
-    private void ResetMovementOnNewPath()
-    {
-        transform.position = gridManager.GetWorldPosFromGridCoordinates(path[0].coordinates);
-    }
 }

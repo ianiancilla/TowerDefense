@@ -39,12 +39,12 @@ public class Tower_EnemyTracking : MonoBehaviour
 
     private void FindClosestTarget()
     {
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        Kodama[] enemies = FindObjectsOfType<Kodama>();
 
-        Enemy closestEnemy = null;
+        Kodama closestEnemy = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (Enemy enemy in enemies)
+        foreach (Kodama enemy in enemies)
         {
             float distance = DistanceOnXZPlane(this.transform.position, enemy.transform.position);
             
