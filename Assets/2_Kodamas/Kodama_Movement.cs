@@ -9,6 +9,7 @@ public class Kodama_Movement : MonoBehaviour
 
     // member variables
     private List<Pathfinding_Node> path = new List<Pathfinding_Node>();
+    public List<Pathfinding_Node> Path { get { return path; } }
 
     // cache
     Pathfinding_GridManager gridManager;
