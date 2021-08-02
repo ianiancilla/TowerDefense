@@ -27,13 +27,19 @@ public class Pathfinding_LineVisualisation : MonoBehaviour
 
     private void DrawPath()
     {
-        Vector3[] lineVertexes = new Vector3[myMovement.Path.Count];
+        int stepsTillShrine = myMovement.pathQueue.Count;
 
-        for (int i = 0; i < myMovement.Path.Count; i++)
+        Vector3[] lineVertexes = new Vector3[stepsTillShrine + 1];    //+1 because we need current position, too.
+        lr.positionCount = lineVertexes.Length;
+
+        lineVertexes[0] = new Vector3(transform.parent.parent.position.x,
+                                      pathY,
+                                      transform.parent.parent.position.z);
+
+        for (int i = 1; i < lineVertexes.Length; i++)
         {
-            lr.positionCount = myMovement.Path.Count;
 
-            Vector3 pathStep = gridManager.GetWorldPosFromGridCoordinates(myMovement.Path[i].coordinates);
+            Vector3 pathStep = gridManager.GetWorldPosFromGridCoordinates(myMovement.pathQueue[i].coordinates);
 
             lineVertexes[i] = new Vector3(pathStep.x,
                                           pathY,

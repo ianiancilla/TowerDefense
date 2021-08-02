@@ -9,7 +9,7 @@ public class Kodama_Movement : MonoBehaviour
 
     // member variables
     private List<Pathfinding_Node> path = new List<Pathfinding_Node>();
-    public List<Pathfinding_Node> Path { get { return path; } }
+    private List<Pathfinding_Node> pathRemaining = new List<Pathfinding_Node>();
 
     // cache
     Pathfinding_GridManager gridManager;
@@ -41,15 +41,14 @@ public class Kodama_Movement : MonoBehaviour
         Vector2Int currentCoordinates = gridManager.GetGridCoordinatesFromWorldPos(
                                                                 transform.position);
         path = pathfinder.GetPath_BreadthFirstSearch(currentCoordinates);
-        Debug.Log("recalculate");
-        Debug.Log(path.Count);
-        foreach (Pathfinding_Node node in path) { Debug.Log(node.coordinates); }
 
         // start on new path
         StartCoroutine(FollowPath());
     }
     private IEnumerator FollowPath()
     {
+        pathRemaining = path;
+
         for (int i = 1; i < path.Count; i++)
         {
             Vector3 startingPosition = transform.position;
