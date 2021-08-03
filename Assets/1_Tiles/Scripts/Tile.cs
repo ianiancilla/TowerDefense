@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] Tower tower;
-    [SerializeField] bool canAcceptTower = true;
-    public bool CanAcceptTower { get { return canAcceptTower; } }
+    [SerializeField] bool isObstacle = false;
+    [SerializeField] bool isHazard = false;
 
+    [SerializeField] GameObject placeableObject;
 
     // member variables
     private Vector2Int coordinates;
+    public GameObject placedObject = null;
 
     // cache
     Pathfinding_GridManager gridManager;
@@ -28,25 +29,46 @@ public class Tile : MonoBehaviour
         if (gridManager != null)
         {
             coordinates = gridManager.GetGridCoordinatesFromWorldPos(this.transform.position);
+            SetCorrespondingNodeProperties();
+        }
 
-            if (!CanAcceptTower)
-            {
-                gridManager.SetWalkable(coordinates, false);
-            }
+    }
+
+    private void SetCorrespondingNodeProperties()
+    {
+        if (isObstacle)
+        {
+            gridManager.SetWalkable(coordinates, false);
+        }
+
+        if (isHazard)
+        {
+            gridManager.SetWalkable(coordinates, false);
         }
     }
 
     private void OnMouseDown()
     {
-        if (gridManager.GetNode(coordinates) == null) { return; }
-
-        // if node is accessible and would not block path entirely
-        if (gridManager.GetNode(coordinates).isWalkable
-            && !pathfinder.WillBlockAnyPath(coordinates))
+        // if tile is empty, place
+        if (placedObject == null)
         {
-            bool isPlaced = true;
-            gridManager.SetWalkable(coordinates, !isPlaced);
-            pathfinder.BroadcastRecalculatePath();
+            Placeable placeable = placeableObject.GetComponent<Placeable>();
+
+            if (placeable.CanBePlaced(coordinates))
+            {
+                placedObject = placeable.Place(coordinates);
+                //if (placed != null)
+                //{
+                //    // TODO change isObstacle and isHazard
+                //}
+            }
+
+        }
+        // if tile has placeable, remove instead
+        else
+        {
+            Placeable placed = placedObject.GetComponent<Placeable>();
+            placed.Remove(coordinates);
         }
     }
 

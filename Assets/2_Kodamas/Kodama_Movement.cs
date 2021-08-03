@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(Kodama))]
 public class Kodama_Movement : MonoBehaviour
@@ -10,6 +11,7 @@ public class Kodama_Movement : MonoBehaviour
     // member variables
     private List<Pathfinding_Node> path = new List<Pathfinding_Node>();
     private List<Pathfinding_Node> pathRemaining = new List<Pathfinding_Node>();
+    public List<Pathfinding_Node> PathRemaining { get { return pathRemaining; } }
 
     // cache
     Pathfinding_GridManager gridManager;
@@ -28,7 +30,6 @@ public class Kodama_Movement : MonoBehaviour
     {
         // initialise
         RecalculatePath();
-        StartCoroutine(FollowPath());
     }
 
     private void RecalculatePath()
@@ -47,7 +48,8 @@ public class Kodama_Movement : MonoBehaviour
     }
     private IEnumerator FollowPath()
     {
-        pathRemaining = path;
+        pathRemaining = path.ToList();
+        pathRemaining.RemoveAt(0);    // removes starting position as it is already reached by default
 
         for (int i = 1; i < path.Count; i++)
         {
@@ -62,8 +64,12 @@ public class Kodama_Movement : MonoBehaviour
             {
                 lerpPhase += speed * Time.deltaTime;
                 transform.position = Vector3.Lerp(startingPosition, targetPosition, lerpPhase);
+
                 yield return new WaitForEndOfFrame();
             }
+
+            pathRemaining.RemoveAt(0);    // removes node once it is reached
+
         }
         ReachEndOfPath();
     }

@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b6defd98bfd1d4abeba1ca1cda2ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: -8181289777772849377, guid: acf042a8a13b315498a05e35a80d1fae, type: 3}
+  isObstacle: 0
+  isHazard: 0
+  placeableObject: {fileID: 3805380532848697483, guid: e58c7991b777e924588180dbd5324727,
+    type: 3}
+  placedObject: {fileID: 0}
 --- !u!65 &3975182427180194250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -240,7 +244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (4, 3)
+  m_text: (3, 7)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -249,8 +253,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255612
-  m_fontColor: {r: 0.9887359, g: 1, b: 0, a: 1}
+    rgba: 4294967040
+  m_fontColor: {r: 0, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

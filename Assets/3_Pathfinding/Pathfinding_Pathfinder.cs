@@ -69,7 +69,7 @@ public class Pathfinding_Pathfinder : MonoBehaviour
             // if not finished, explore new neighbours:
             foreach (Pathfinding_Node neighbour in FindNeighbours(currentSearchedNode))
             {
-                if (!reachedDict.ContainsKey(neighbour.coordinates) && neighbour.isWalkable)
+                if (!reachedDict.ContainsKey(neighbour.coordinates) && neighbour.IsWalkable)
                 {
                     neighbour.reachedFromNode = currentSearchedNode;
                     exploringQueue.Enqueue(neighbour);
@@ -91,7 +91,7 @@ public class Pathfinding_Pathfinder : MonoBehaviour
         do 
         {
             path.Add(currentNode);
-            currentNode.isPath = true;
+            //currentNode.isPath = true;
             currentNode = currentNode.reachedFromNode;
         } while (currentNode != null);
 
@@ -116,13 +116,13 @@ public class Pathfinding_Pathfinder : MonoBehaviour
         return neighbours;
     }
 
-    private void SetNodesAsPath(List<Pathfinding_Node> path)
-    {
-        foreach (Pathfinding_Node node in path)
-        {
-            node.isPath = true;
-        }
-    }
+    //private void SetNodesAsPath(List<Pathfinding_Node> path)
+    //{
+    //    foreach (Pathfinding_Node node in path)
+    //    {
+    //        node.isPath = true;
+    //    }
+    //}
 
     /// <summary>
     /// Checks if blocking a given tile will completely prefeny any of the Kodama from reaching
@@ -166,7 +166,7 @@ public class Pathfinding_Pathfinder : MonoBehaviour
     private bool WillBlockPath(Vector2Int blockedCoordinates, Vector2Int startPointOfCheck)
     {
         // temporarily sets as unwalkable, checks for new path, sets it back
-        bool previousWalkableState = gridManager.GetNode(blockedCoordinates).isWalkable;
+        bool previousWalkableState = gridManager.GetNode(blockedCoordinates).IsWalkable;
         gridManager.SetWalkable(blockedCoordinates, false);
 
         var tempPath = GetPath_BreadthFirstSearch(startPointOfCheck);
@@ -179,8 +179,6 @@ public class Pathfinding_Pathfinder : MonoBehaviour
 
     public void BroadcastRecalculatePath()
     {
-        Debug.Log("recalculate message");
-
         BroadcastMessage("RecalculatePath", SendMessageOptions.DontRequireReceiver);
     }
 }

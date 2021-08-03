@@ -51,7 +51,15 @@ public class Pathfinding_GridManager : MonoBehaviour
     {
         if (gridDict.ContainsKey(coordinates))
         {
-            gridDict[coordinates].isWalkable = newWalkable;
+            gridDict[coordinates].SetWalkable(newWalkable);
+        }
+    }
+
+    public void SetHazard(Vector2Int coordinates, bool newHazard)
+    {
+        if (gridDict.ContainsKey(coordinates))
+        {
+            gridDict[coordinates].SetHazard(newHazard);
         }
     }
 
@@ -61,7 +69,7 @@ public class Pathfinding_GridManager : MonoBehaviour
         {
             entry.Value.reachedFromNode = null;
             entry.Value.isExplored = false;
-            entry.Value.isPath = false;
+            //entry.Value.isPath = false;
         }
     }
 

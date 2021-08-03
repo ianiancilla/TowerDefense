@@ -78,9 +78,9 @@ public class Tile_CoordinateLabel : MonoBehaviour
         if (correspondingNode == null) { return; }
         
         // label color
-        if (!correspondingNode.isWalkable) { label.color = labelColorNotWalkable; }
-        else if (correspondingNode.isPath) { label.color = labelColorPath; }
-        else if (correspondingNode.isExplored) { label.color = labelColorExplored; }
+        if (!correspondingNode.IsWalkable) { label.color = labelColorNotWalkable; }
+        //else if (correspondingNode.isPath) { label.color = labelColorPath; }
+        //else if (correspondingNode.isExplored) { label.color = labelColorExplored; }
         else { label.color = labelColorWalkable; }
 
     }

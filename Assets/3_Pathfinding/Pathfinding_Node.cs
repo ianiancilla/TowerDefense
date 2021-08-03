@@ -8,9 +8,16 @@ public class Pathfinding_Node
     // member variables
     public Vector2Int coordinates;
 
-    public bool isWalkable;
+    // state 
+    private bool isWalkable;
+    public bool IsWalkable { get { return isWalkable; } }
+
+    private bool isHazard;
+    public bool IsHazard { get { return isHazard; } }
+
+
+    // pathfinding
     public bool isExplored = false;
-    public bool isPath = false;
     public Pathfinding_Node reachedFromNode;
 
     // constructor
@@ -19,4 +26,16 @@ public class Pathfinding_Node
         this.coordinates = coordinates;
         this.isWalkable = isWalkable;
     }
+
+    // setters
+    public void SetWalkable(bool newWalkable)
+    {
+        isWalkable = newWalkable;
+    }
+
+    public void SetHazard(bool newHazard)
+    {
+        isHazard = newHazard;
+    }
+
 }
