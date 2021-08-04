@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(Kodama))]
+[RequireComponent(typeof(Kodama_Health))]
 public class Kodama_Movement : MonoBehaviour
 {
     [Tooltip("Tiles per second")] [SerializeField] [Range(0f, 5f)] float speed = 1f;
@@ -16,6 +16,7 @@ public class Kodama_Movement : MonoBehaviour
     // cache
     Pathfinding_GridManager gridManager;
     Pathfinding_Pathfinder pathfinder;
+    Kodama_Health myHealth;
 
 
     private void Awake()
@@ -23,6 +24,7 @@ public class Kodama_Movement : MonoBehaviour
         // cache
         gridManager = FindObjectOfType<Pathfinding_GridManager>();
         pathfinder = FindObjectOfType<Pathfinding_Pathfinder>();
+        myHealth = GetComponent<Kodama_Health>();
     }
 
     // Update is called once per frame
@@ -51,8 +53,15 @@ public class Kodama_Movement : MonoBehaviour
         pathRemaining = path.ToList();
         pathRemaining.RemoveAt(0);    // removes starting position as it is already reached by default
 
+        // for each step in the path
         for (int i = 1; i < path.Count; i++)
         {
+            // check if death due to hazard
+            if (path[i].IsHazard)
+            {
+                myHealth.Die();
+            }
+
             Vector3 startingPosition = transform.position;
             Vector3 targetPosition = gridManager.GetWorldPosFromGridCoordinates(path[i].coordinates);
 

@@ -43,7 +43,7 @@ public class Tile : MonoBehaviour
 
         if (isHazard)
         {
-            gridManager.SetWalkable(coordinates, false);
+            gridManager.SetHazard(coordinates, true);
         }
     }
 

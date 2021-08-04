@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Kodama))]
+[RequireComponent(typeof(Kodama_Movement))]
 public class Kodama_Health : MonoBehaviour
 {
+    [SerializeField] float destructionDelay = 1f;
+
     // cache
-    Kodama myKodama;
+    Kodama_Movement myMovement;
 
 
     private void Start()
     {
         // cache
-        myKodama = GetComponent<Kodama>();
+        myMovement = GetComponent<Kodama_Movement>();
     }
 
-    private void Die()
+    public void Die()
     {
-        gameObject.SetActive(false);
+        // stop movement
+        
+        Destroy(this.gameObject);
+        Debug.Log("DED");
     }
 
 }
