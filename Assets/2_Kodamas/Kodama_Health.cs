@@ -19,9 +19,7 @@ public class Kodama_Health : MonoBehaviour
 
     public void Die()
     {
-        // stop movement
-        
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
         Debug.Log("DED");
     }
 

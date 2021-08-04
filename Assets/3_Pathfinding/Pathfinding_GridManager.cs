@@ -62,6 +62,14 @@ public class Pathfinding_GridManager : MonoBehaviour
             gridDict[coordinates].SetHazard(newHazard);
         }
     }
+    public void SetBridge(Vector2Int coordinates, bool newState)
+    {
+        if (gridDict.ContainsKey(coordinates))
+        {
+            gridDict[coordinates].SetCanBeBridged(newState);
+        }
+    }
+
 
     public void ResetPathfindingProperties()
     {

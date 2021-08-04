@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] bool isObstacle = false;
     [SerializeField] bool isHazard = false;
+    [SerializeField] bool canBeBridged = false;
 
     [SerializeField] GameObject placeableObject;
 
@@ -45,6 +46,11 @@ public class Tile : MonoBehaviour
         {
             gridManager.SetHazard(coordinates, true);
         }
+
+        if (canBeBridged)
+        {
+            gridManager.SetBridge(coordinates, true);
+        }
     }
 
     private void OnMouseDown()
@@ -57,10 +63,6 @@ public class Tile : MonoBehaviour
             if (placeable.CanBePlaced(coordinates))
             {
                 placedObject = placeable.Place(coordinates);
-                //if (placed != null)
-                //{
-                //    // TODO change isObstacle and isHazard
-                //}
             }
 
         }

@@ -138,7 +138,7 @@ public class Pathfinding_Pathfinder : MonoBehaviour
 
         foreach (Kodama kodama in kodamas)
         {
-            // if it's already arrived
+            // if it's already arrived or dead
             if (!kodama.gameObject.activeSelf) { continue; }
 
             Vector2Int currentCoordinates = gridManager.GetGridCoordinatesFromWorldPos(

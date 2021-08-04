@@ -15,6 +15,9 @@ public class Pathfinding_Node
     private bool isHazard;
     public bool IsHazard { get { return isHazard; } }
 
+    private bool canBeBridged;
+    public bool CanBeBridged { get { return canBeBridged; } }
+
 
     // pathfinding
     public bool isExplored = false;
@@ -36,6 +39,11 @@ public class Pathfinding_Node
     public void SetHazard(bool newHazard)
     {
         isHazard = newHazard;
+    }
+
+    public void SetCanBeBridged(bool newState)
+    {
+        canBeBridged = newState;
     }
 
 }
