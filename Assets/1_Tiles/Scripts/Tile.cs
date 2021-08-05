@@ -16,13 +16,13 @@ public class Tile : MonoBehaviour
 
     // cache
     Pathfinding_GridManager gridManager;
-    Pathfinding_Pathfinder pathfinder;
+    PlaceableObjectsPool placeablePool;
 
     private void Awake()
     {
         // cache
         gridManager = FindObjectOfType<Pathfinding_GridManager>();
-        pathfinder = FindObjectOfType<Pathfinding_Pathfinder>();
+        placeablePool = FindObjectOfType<PlaceableObjectsPool>();
     }
 
     private void Start()
@@ -58,19 +58,19 @@ public class Tile : MonoBehaviour
         // if tile is empty, place
         if (placedObject == null)
         {
-            Placeable placeable = placeableObject.GetComponent<Placeable>();
+            Placeable placeable = placeablePool.SelectedPlaceable.GetComponent<Placeable>();
 
             if (placeable.CanBePlaced(coordinates))
             {
                 placedObject = placeable.Place(coordinates);
             }
-
         }
         // if tile has placeable, remove instead
         else
         {
             Placeable placed = placedObject.GetComponent<Placeable>();
             placed.Remove(coordinates);
+            placedObject = null;
         }
     }
 

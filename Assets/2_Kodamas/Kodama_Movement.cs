@@ -60,6 +60,7 @@ public class Kodama_Movement : MonoBehaviour
             if (path[i].IsHazard)
             {
                 myHealth.Die();
+                Debug.Log(this.gameObject.name + " died at " + path[i].coordinates + path[i].IsHazard.ToString());
             }
 
             Vector3 startingPosition = transform.position;
@@ -87,6 +88,7 @@ public class Kodama_Movement : MonoBehaviour
     {
         // send back to the pool
         gameObject.SetActive(false);
+        Debug.Log(this.gameObject.name + " arrived!");
     }
 
 }
