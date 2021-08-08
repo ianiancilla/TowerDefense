@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 072995d2889c31c439bf1ba796919558,
     type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -38,6 +38,7 @@ Material:
     - Vector1_6facdc4976c642bf9d1634dcbbac6dc9: 0.606
     - Vector1_cc291b5f2107492d8005713c6f65b499: 0.339
     - Vector1_dfebc269514d47408eeba56be0e97832: 0.564
+    - Vector1_f3c02fabb41d447db94e5857a3910973: 1
     - Vector1_f841b1c94b494ba287f97d53c780e10a: 2.52
     m_Colors:
     - Color_a18f3d7cfadb4c9594e85ec5624444d2: {r: 1.7204412, g: 0.103773594, b: 2,
