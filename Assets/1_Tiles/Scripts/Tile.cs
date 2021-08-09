@@ -58,7 +58,10 @@ public class Tile : MonoBehaviour
         // if tile is empty, place
         if (placedObject == null)
         {
-            Placeable placeable = placeablePool.SelectedPlaceable.GetComponent<Placeable>();
+
+            Placeable placeable = placeablePool.SelectedPlaceable ? .GetComponent<Placeable>();
+
+            if (placeable == null) { return; }
 
             if (placeable.CanBePlaced(coordinates))
             {

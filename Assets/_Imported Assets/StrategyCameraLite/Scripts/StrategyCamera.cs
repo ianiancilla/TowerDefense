@@ -53,6 +53,7 @@ public class StrategyCamera : MonoBehaviour
 	[Header("Zooming limits")]
 	public float MinZoomDistance = 1;
 	public float MaxZoomDistance = 10;
+	public float StartingZoom = 10f;
 
 	public bool PreventClipping;
 	public float ClippingDistance;
@@ -81,7 +82,9 @@ public class StrategyCamera : MonoBehaviour
 	{
 		targetPosition = transform.position;
 		targetRotation = transform.rotation;
-		targetZoom = cam.transform.position.z;
+		targetZoom = Mathf.Clamp(cam.transform.position.z - StartingZoom, 
+								 -MaxZoomDistance, 
+								 -MinZoomDistance);
 	}
 
 	private void OnDrawGizmosSelected()

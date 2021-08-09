@@ -78,6 +78,8 @@ public class StrategyCameraEditor : Editor
 
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("MinZoomDistance"));
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("MaxZoomDistance"));
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("StartingZoom"));
+
 
 			var preventClipping = serializedObject.FindProperty("PreventClipping");
 			EditorGUILayout.PropertyField(preventClipping);
