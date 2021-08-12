@@ -6,26 +6,25 @@ using TMPro;
 public class PlaceableButtonText : MonoBehaviour
 {
     // properties
-    [SerializeField] GameObject prefabToCount;
+    [SerializeField] string myPlaceableTag;
 
     // cache
     PlaceableObjectsPool placeablePool;
-    TMP_Text textbox;
-    Placeable myPlaceableType;
+    TMP_Text myTextbox;
 
     // Start is called before the first frame update
     void Start()
     {
         // cache
         placeablePool = FindObjectOfType<PlaceableObjectsPool>();
-        textbox = GetComponent<TMP_Text>();
-        myPlaceableType = prefabToCount.GetComponent<Placeable>();
+        myTextbox = GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        textbox.text = CountAvailable().ToString();
+        // TODO remove this from update and refresh on need!
+        myTextbox.text = CountAvailable().ToString();
     }
 
     private int CountAvailable()
@@ -37,7 +36,7 @@ public class PlaceableButtonText : MonoBehaviour
             // active items are not available for placing
             if (placeable.activeSelf) { continue; }
 
-            if (placeable.GetComponent<Placeable>() == myPlaceableType)
+            if (placeable.tag == myPlaceableTag)
             {
                 total++;
             }

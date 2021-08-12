@@ -4268,6 +4268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Placeable_Selection_Bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 1211415367587658352, guid: 008607bcbec617c4397e81af66db6ae9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4306,12 +4311,12 @@ PrefabInstance:
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 260
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
@@ -8554,7 +8559,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 27
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -8943,7 +8948,12 @@ PrefabInstance:
     - target: {fileID: 1211415367392734486, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211415367392734490, guid: 008607bcbec617c4397e81af66db6ae9,
+        type: 3}
+      propertyPath: myPlaceableTag
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658352, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
@@ -8958,7 +8968,7 @@ PrefabInstance:
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
@@ -8973,7 +8983,7 @@ PrefabInstance:
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
@@ -8983,17 +8993,17 @@ PrefabInstance:
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
@@ -9033,12 +9043,12 @@ PrefabInstance:
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 15
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658353, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
@@ -9054,6 +9064,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211415367587658358, guid: 008607bcbec617c4397e81af66db6ae9,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211415367587658358, guid: 008607bcbec617c4397e81af66db6ae9,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.a
+      value: 0.78431374
       objectReference: {fileID: 0}
     - target: {fileID: 1211415367587658358, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
