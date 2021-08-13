@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Kodama_Movement))]
 public class Kodama_Health : MonoBehaviour
 {
-    [SerializeField] float destructionDelay = 1f;
 
     // cache
     Kodama_Movement myMovement;
@@ -19,8 +18,8 @@ public class Kodama_Health : MonoBehaviour
 
     public void Die()
     {
-        this.gameObject.SetActive(false);
         FindObjectOfType<GameManager>().GameOver();
+        this.gameObject.SetActive(false);
     }
 
 }
