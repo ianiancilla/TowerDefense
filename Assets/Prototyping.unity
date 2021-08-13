@@ -1526,9 +1526,9 @@ RectTransform:
   m_Father: {fileID: 1518985945}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 660, y: -375}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700.98, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &174566520
@@ -1680,14 +1680,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlaceableObjectsPool, Assembly-CSharp
-        m_MethodName: SetAsCurrentPlaceable
-        m_Mode: 2
+      - m_Target: {fileID: 502512128}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadMainMenu
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 3805380532848697483, guid: e58c7991b777e924588180dbd5324727,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2583,6 +2582,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 388783557}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &399902987 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7531876953120939852, guid: 4342c07a9c16e0f44b8ff5234168ce76,
+    type: 3}
+  m_PrefabInstance: {fileID: 2111919511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &465852879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2873,7 +2878,7 @@ MonoBehaviour:
   m_text: Back to menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7918054c53a149e45adc9a355d675072, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 1bf32fe331a1acc429538bf78d90a570, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 2e6c330ad90d9214ab74c794bdb44e3b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3043,6 +3048,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 483421004}
   youWonMenu: {fileID: 1680808806}
+--- !u!114 &502512128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502512126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df75dfa26f72d0a4b980c437f2d67b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &502678545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4237,7 +4254,7 @@ GameObject:
   - component: {fileID: 820578345}
   - component: {fileID: 820578344}
   m_Layer: 5
-  m_Name: Retry
+  m_Name: Next
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4258,9 +4275,9 @@ RectTransform:
   m_Father: {fileID: 1518985945}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 660, y: -125}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700.98, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820578344
@@ -4412,14 +4429,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlaceableObjectsPool, Assembly-CSharp
-        m_MethodName: SetAsCurrentPlaceable
-        m_Mode: 2
+      - m_Target: {fileID: 502512128}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 3805380532848697483, guid: e58c7991b777e924588180dbd5324727,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4848,10 +4864,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Try Again
+  m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7918054c53a149e45adc9a355d675072, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 1bf32fe331a1acc429538bf78d90a570, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 2e6c330ad90d9214ab74c794bdb44e3b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8659,7 +8675,7 @@ GameObject:
   - component: {fileID: 1553901201}
   - component: {fileID: 1553901202}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: ButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8901,7 +8917,7 @@ MonoBehaviour:
   m_MaterialMode: 0
   m_StrokeWidth: 0
   m_OutlineWidth: 10
-  m_OutlineColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+  m_OutlineColor: {r: 0.6037736, g: 0.32672554, b: 0.19081523, a: 0.7058824}
   m_FalloffDistance: 0.5
   m_ConstrainRotation: 1
   m_ShapeRotation: 0
@@ -9015,14 +9031,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlaceableObjectsPool, Assembly-CSharp
-        m_MethodName: SetAsCurrentPlaceable
-        m_Mode: 2
+      - m_Target: {fileID: 502512128}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadMainMenu
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 3805380532848697483, guid: e58c7991b777e924588180dbd5324727,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9169,7 +9184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1680808807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10247,15 +10262,15 @@ Canvas:
   m_GameObject: {fileID: 2042058025}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 399902987}
+  m_PlaneDistance: 0.5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 27
+  m_AdditionalShaderChannelsFlag: -1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -10857,14 +10872,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlaceableObjectsPool, Assembly-CSharp
-        m_MethodName: SetAsCurrentPlaceable
-        m_Mode: 2
+      - m_Target: {fileID: 502512128}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: ReloadCurrentScene
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 3805380532848697483, guid: e58c7991b777e924588180dbd5324727,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11388,7 +11402,7 @@ MonoBehaviour:
   m_MaterialMode: 0
   m_StrokeWidth: 0
   m_OutlineWidth: 10
-  m_OutlineColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+  m_OutlineColor: {r: 0.6037736, g: 0.32672554, b: 0.19081523, a: 0.7058824}
   m_FalloffDistance: 0.5
   m_ConstrainRotation: 1
   m_ShapeRotation: 0

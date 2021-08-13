@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     int totalKodama;
     int savedKodama;
 
-    // cache
-
-
     // Start is called before the first frame update
     void Awake()
     {
