@@ -140,7 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2cf3df1750ac44db2407ad142190f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathY: 1
+  pathYPos: 2
+  pathLinePadding: 0.5
 --- !u!1 &7470794418851646071
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.45
+  pathLinePadding: 1
 --- !u!114 &687925905576961745
 MonoBehaviour:
   m_ObjectHideFlags: 0

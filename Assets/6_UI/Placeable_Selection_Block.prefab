@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1211415367392734487
 RectTransform:
   m_ObjectHideFlags: 0
@@ -108,11 +108,11 @@ RectTransform:
   m_Father: {fileID: 1211415367587658353}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 45.463425, y: 0}
-  m_SizeDelta: {x: -90.9278, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -9.9605, y: -23.573189}
+  m_SizeDelta: {x: 111.9257, y: 131.6045}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1211415367392734485
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -141,17 +141,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999
+  m_text: 99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7918054c53a149e45adc9a355d675072, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 57ac3a8f2f45048409d8a85b2bcd0269, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -168,13 +168,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccb39bc80c39bc0468d1b8b001679740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToCount: {fileID: 0}
+  myPlaceableTag: Stone
 --- !u!1 &1211415367587658352
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,10 +293,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.10346207, g: 0.8773585, b: 0.31400642, a: 0.39215687}
+    m_NormalColor: {r: 0.10346207, g: 0.8773585, b: 0.31400642, a: 0.78431374}
     m_HighlightedColor: {r: 0.101960786, g: 0.8784314, b: 0.3137255, a: 1}
     m_PressedColor: {r: 1, g: 0, b: 0.88169384, a: 1}
-    m_SelectedColor: {r: 0.101960786, g: 0.8784314, b: 0.3137255, a: 0.39215687}
+    m_SelectedColor: {r: 0.101960786, g: 0.8784314, b: 0.3137255, a: 0.78431374}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
