@@ -23,7 +23,6 @@ public class Placeable_Bridge : MonoBehaviour, Placeable
         if (FindObjectInPool() == null) { return false; }
 
         // if node is accessible and can be bridged
-
         bool isWalkable = gridManager.GetNode(coordinates).IsWalkable;
         bool canBeBridged = gridManager.GetNode(coordinates).CanBeBridged;
 

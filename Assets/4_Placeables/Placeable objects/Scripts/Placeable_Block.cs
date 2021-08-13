@@ -20,14 +20,15 @@ public class Placeable_Block : MonoBehaviour, Placeable
 
         // if there is an available INACTIVE placeable of this kind in the pool
         if (placeablePool.pool.Count == 0) { return false; }
-
         if (FindObjectInPool() == null) { return false; }
 
-        // if node is accessible and would not block path entirely
+        // if node is accessible AND would not block path entirely
+        // AND cannot be bridged (no stones on pitfalls)
         bool isWalkable = gridManager.GetNode(coordinates).IsWalkable;
         bool willBlockAnyKodama = pathfinder.WillBlockAnyPath(coordinates);
+        bool canBeBridged = gridManager.GetNode(coordinates).CanBeBridged;
 
-        return isWalkable && !willBlockAnyKodama;
+        return isWalkable && !willBlockAnyKodama && !canBeBridged;
     }
 
     public GameObject Place(Vector2Int coordinates)
