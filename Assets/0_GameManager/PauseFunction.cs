@@ -20,7 +20,7 @@ public class PauseFunction : MonoBehaviour
     }
 
 
-    private void GamePause()
+    public void GamePause()
     {
         if (isPaused) { Time.timeScale = 1; }    // unpause if paused
         else { Time.timeScale = 0; }    // pause if running

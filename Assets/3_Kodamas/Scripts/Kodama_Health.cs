@@ -20,7 +20,7 @@ public class Kodama_Health : MonoBehaviour
     public void Die()
     {
         this.gameObject.SetActive(false);
-        Debug.Log("DED");
+        FindObjectOfType<GameManager>().GameOver();
     }
 
 }

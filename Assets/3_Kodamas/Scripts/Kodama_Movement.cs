@@ -86,9 +86,10 @@ public class Kodama_Movement : MonoBehaviour
 
     private void ReachEndOfPath()
     {
+        FindObjectOfType<GameManager>().ScoreKodama();
+        
         // send back to the pool
         gameObject.SetActive(false);
-        Debug.Log(this.gameObject.name + " arrived!");
     }
 
 }
