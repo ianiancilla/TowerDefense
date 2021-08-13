@@ -5284,12 +5284,12 @@ PrefabInstance:
     - target: {fileID: 6381251237763469357, guid: a5174e20e1e32a3478e681538344e9af,
         type: 3}
       propertyPath: pathYPos
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6381251237763469357, guid: a5174e20e1e32a3478e681538344e9af,
         type: 3}
-      propertyPath: pathLinePadding
-      value: 0.5
+      propertyPath: startOffset
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7470794418851646071, guid: a5174e20e1e32a3478e681538344e9af,
         type: 3}
@@ -5351,10 +5351,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8442207417470447644, guid: a5174e20e1e32a3478e681538344e9af,
+    - target: {fileID: 8205023870465259109, guid: a5174e20e1e32a3478e681538344e9af,
         type: 3}
-      propertyPath: m_Parameters.colorGradient.ctime1
-      value: 65535
+      propertyPath: m_LocalPosition.z
+      value: 1.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5174e20e1e32a3478e681538344e9af, type: 3}

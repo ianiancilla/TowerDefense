@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pathfinding_LineVisualisation : MonoBehaviour
 {
-    [SerializeField] float pathY = 6f;
+    [SerializeField] float pathYPos = 6f;
 
     // cache
     Pathfinding_GridManager gridManager;
@@ -27,14 +27,18 @@ public class Pathfinding_LineVisualisation : MonoBehaviour
 
     private void DrawPath()
     {
+        // find nr of vertexes needed
         int vertexNr = myMovement.PathRemaining.Count + 1;    //+1 because we need current position, too.
 
         Vector3[] lineVertexes = new Vector3[vertexNr];    
         lr.positionCount = lineVertexes.Length;
 
-        lineVertexes[0] = new Vector3(transform.parent.position.x,
-                                      pathY,
-                                      transform.parent.position.z);
+        // set starting point
+        Vector3 kodamaPos = new Vector3(transform.parent.position.x,
+                                        pathYPos,
+                                        transform.parent.position.z);
+
+        lineVertexes[0] = kodamaPos;
 
         for (int i = 1; i < lineVertexes.Length; i++)
         {
@@ -43,7 +47,7 @@ public class Pathfinding_LineVisualisation : MonoBehaviour
             Vector3 pathStep = gridManager.GetWorldPosFromGridCoordinates(myMovement.PathRemaining[i-1].coordinates);
 
             lineVertexes[i] = new Vector3(pathStep.x,
-                                          pathY,
+                                          pathYPos,
                                           pathStep.z);
 
         }
