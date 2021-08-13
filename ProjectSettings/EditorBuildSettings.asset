@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Prototyping.unity
     guid: 01c59104ad8cac74583bf493ae2345eb
   - enabled: 1
-    path: Assets/Credits.unity
+    path: Assets/Credits/Credits.unity
     guid: 42614fc8bb6dc4446a4f00de830fb2f6
   m_configObjects: {}
