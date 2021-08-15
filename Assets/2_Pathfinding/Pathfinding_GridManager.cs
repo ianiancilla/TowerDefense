@@ -99,5 +99,17 @@ public class Pathfinding_GridManager : MonoBehaviour
 
         return worldPos;
     }
+    public bool doesTileHaveKodamaOnIt(Vector2Int coordinates)
+    {
+        Kodama[] kodamas = FindObjectsOfType<Kodama>(false);
+
+        foreach (Kodama kodama in kodamas)
+        {
+            Vector2Int kodamaGridPos = kodama.GetCurrentGridTile();
+            if (kodamaGridPos == coordinates) { return true; }
+        }
+
+        return false;
+    }
 
 }
