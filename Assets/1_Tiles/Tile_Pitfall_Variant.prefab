@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8481034978161370775
+--- !u!1001 &2739736303589830868
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -12,20 +12,56 @@ PrefabInstance:
       propertyPath: isHazard
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 29354083683997673, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
+      propertyPath: canBeBridged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 29354083683997673, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
+      propertyPath: placeableObject
+      value: 
+      objectReference: {fileID: 7184212717547874007, guid: 355d963628ca4e542a478f5da6b1f4e9,
+        type: 3}
     - target: {fileID: 302799799364685274, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_Name
-      value: Tile_Fire
+      value: Tile_Pitfall_Variant
       objectReference: {fileID: 0}
     - target: {fileID: 302799799364685274, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 302799799364685274, guid: 7a1334c487187f043b02b29f22ac6d9c,
+    - target: {fileID: 681692321299032734, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 681692321299032734, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 724366074044895731, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8717174c2ccc8074192baf3b2035b155, type: 2}
+    - target: {fileID: 724366074044895731, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8717174c2ccc8074192baf3b2035b155, type: 2}
+    - target: {fileID: 1893301607619472028, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893301607619472028, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
@@ -35,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
@@ -45,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
@@ -84,23 +120,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3825854745227116985, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3825854745227116985, guid: 7a1334c487187f043b02b29f22ac6d9c,
-        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e58d9077cf99a2a41bcf509056963f95, type: 2}
-    - target: {fileID: 3975182427180194250, guid: 7a1334c487187f043b02b29f22ac6d9c,
+      objectReference: {fileID: 2100000, guid: 8717174c2ccc8074192baf3b2035b155, type: 2}
+    - target: {fileID: 4860993578762956412, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8464256074899717969, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_text
-      value: (2, 7)
+      value: (1, 6)
       objectReference: {fileID: 0}
     - target: {fileID: 8464256074899717969, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}

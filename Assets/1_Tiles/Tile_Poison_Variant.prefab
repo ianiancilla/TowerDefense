@@ -1,6 +1,87 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2739736303589830868
+--- !u!1 &7572929775014868875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8437639969928993438}
+  - component: {fileID: 3814450667135274645}
+  - component: {fileID: 3627364157903852805}
+  m_Layer: 0
+  m_Name: Poison
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8437639969928993438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572929775014868875}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
+  m_LocalScale: {x: 5, y: 0.1, z: 5}
+  m_Children: []
+  m_Father: {fileID: 6630866172623659060}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3814450667135274645
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572929775014868875}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3627364157903852805
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7572929775014868875}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 18d0cbdecc270bc41adc92ebd05f0bc4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &8481034978161370775
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -12,26 +93,20 @@ PrefabInstance:
       propertyPath: isHazard
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 29354083683997673, guid: 7a1334c487187f043b02b29f22ac6d9c,
-        type: 3}
-      propertyPath: canBeBridged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 29354083683997673, guid: 7a1334c487187f043b02b29f22ac6d9c,
-        type: 3}
-      propertyPath: placeableObject
-      value: 
-      objectReference: {fileID: 7184212717547874007, guid: 355d963628ca4e542a478f5da6b1f4e9,
-        type: 3}
     - target: {fileID: 302799799364685274, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_Name
-      value: (1, 6)
+      value: Tile_Poison_Variant
       objectReference: {fileID: 0}
     - target: {fileID: 302799799364685274, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 302799799364685274, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
@@ -41,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
@@ -51,7 +126,7 @@ PrefabInstance:
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
@@ -90,18 +165,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3825854745227116985, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825854745227116985, guid: 7a1334c487187f043b02b29f22ac6d9c,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 49ec4392f98fafa44a775cb85bcf7670, type: 2}
-    - target: {fileID: 4860993578762956412, guid: 7a1334c487187f043b02b29f22ac6d9c,
+      objectReference: {fileID: 2100000, guid: e58d9077cf99a2a41bcf509056963f95, type: 2}
+    - target: {fileID: 3975182427180194250, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8464256074899717969, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_text
-      value: (1, 6)
+      value: (2, 7)
       objectReference: {fileID: 0}
     - target: {fileID: 8464256074899717969, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
@@ -130,3 +210,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a1334c487187f043b02b29f22ac6d9c, type: 3}
+--- !u!4 &6630866172623659060 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8481034978161370775}
+  m_PrefabAsset: {fileID: 0}
