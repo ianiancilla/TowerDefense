@@ -13,6 +13,12 @@ public class Kodama_Movement : MonoBehaviour
     private List<Pathfinding_Node> pathRemaining = new List<Pathfinding_Node>();
     public List<Pathfinding_Node> PathRemaining { get { return pathRemaining; } }
 
+    float hazardCheckPoint = 0.5f;    // at what point between the centre of two
+                                      // tiles will the hazard checke be done.
+                                      // 0 is when startig from centre of first tile,
+                                      // 1 at centre of target tile, 0.5 exactly when
+                                      // stepping on second tile
+
     // cache
     Pathfinding_GridManager gridManager;
     Pathfinding_Pathfinder pathfinder;
@@ -56,13 +62,6 @@ public class Kodama_Movement : MonoBehaviour
         // for each step in the path
         for (int i = 1; i < path.Count; i++)
         {
-            // check if death due to hazard
-            if (path[i].IsHazard)
-            {
-                myHealth.Die();
-                Debug.Log(this.gameObject.name + " died at " + path[i].coordinates + path[i].IsHazard.ToString());
-            }
-
             Vector3 startingPosition = transform.position;
             Vector3 targetPosition = gridManager.GetWorldPosFromGridCoordinates(path[i].coordinates);
 
@@ -75,6 +74,11 @@ public class Kodama_Movement : MonoBehaviour
                 lerpPhase += speed * Time.deltaTime;
                 transform.position = Vector3.Lerp(startingPosition, targetPosition, lerpPhase);
 
+                if (lerpPhase > hazardCheckPoint)
+                {
+                    CheckForHazard(path[i]);
+                }
+
                 yield return new WaitForEndOfFrame();
             }
 
@@ -82,6 +86,16 @@ public class Kodama_Movement : MonoBehaviour
 
         }
         ReachEndOfPath();
+    }
+
+    private void CheckForHazard(Pathfinding_Node nextNode)
+    {
+        // check if death due to hazard
+        if (nextNode.IsHazard)
+        {
+            myHealth.Die();
+            Debug.Log(this.gameObject.name + " died at " + nextNode.coordinates + nextNode.IsHazard.ToString());
+        }
     }
 
     private void ReachEndOfPath()
