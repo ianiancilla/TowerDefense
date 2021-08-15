@@ -138,7 +138,7 @@ public class Pathfinding_GridManager : MonoBehaviour
 
         if ( ! coordinates.Contains(Vector2Int.zero))
         {
-            Debug.Log("ERROR: Grid must start at 0,0");
+            Debug.LogError("ERROR: Grid must start at 0,0");
         }
 
         gridSizeInTiles = new Vector2Int(maxXCoo + 1,
