@@ -8,8 +8,6 @@ public class Tile : MonoBehaviour
     [SerializeField] bool isHazard = false;
     [SerializeField] bool canBeBridged = false;
 
-    [SerializeField] GameObject placeableObject;
-
     // member variables
     private Vector2Int coordinates;
     public GameObject placedObject = null;

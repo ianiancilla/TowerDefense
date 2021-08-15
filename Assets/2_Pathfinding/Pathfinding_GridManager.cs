@@ -9,15 +9,15 @@ public class Pathfinding_GridManager : MonoBehaviour
     [SerializeField] private int gridUnitSize = 5;
     public int GridUnitSize { get { return gridUnitSize; } }
 
-    [Tooltip("How many tiles are in the grid on x and y")]
-    [SerializeField] private Vector2Int gridSizeInTiles;
-
     // member variables
+    private Vector2Int gridSizeInTiles;
+
     Dictionary<Vector2Int, Pathfinding_Node> gridDict = new Dictionary<Vector2Int, Pathfinding_Node>();
     public Dictionary<Vector2Int, Pathfinding_Node> GridDict { get { return gridDict; } }
 
     private void Awake()
     {
+        SetGridSize();
         CreateGrid();
     }
 
@@ -112,4 +112,37 @@ public class Pathfinding_GridManager : MonoBehaviour
         return false;
     }
 
+    private void SetGridSize()
+    {
+        Tile[] tiles = FindObjectsOfType<Tile>();
+        List<Vector2> coordinates = new List<Vector2>();
+
+        int maxXCoo = 0;
+        int maxYCoo = 0;
+
+        foreach (Tile tile in tiles)
+        {
+            Vector2Int tileCoo = GetGridCoordinatesFromWorldPos(tile.transform.position);
+
+            // check for tile overlap
+            if (coordinates.Contains(tileCoo))
+            {
+                Debug.Log("WARNING: Overlapping tiles at " + tileCoo.ToString());
+            }
+
+            if (tileCoo.x > maxXCoo) { maxXCoo = tileCoo.x; }
+            if (tileCoo.y > maxYCoo) { maxYCoo = tileCoo.y; }
+
+            coordinates.Add(tileCoo);
+        }
+
+        if ( ! coordinates.Contains(Vector2Int.zero))
+        {
+            Debug.Log("ERROR: Grid must start at 0,0");
+        }
+
+        gridSizeInTiles = new Vector2Int(maxXCoo + 1,
+                                         maxYCoo + 1);
+
+    }
 }

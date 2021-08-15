@@ -92,6 +92,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseFunction, Assembly-CSharp
+        m_MethodName: GamePause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: ReloadCurrentScene
         m_Mode: 1
@@ -1392,6 +1404,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseFunction, Assembly-CSharp
+        m_MethodName: GamePause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
@@ -2247,17 +2271,17 @@ PrefabInstance:
     - target: {fileID: 4497575282598818379, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_GradientEffect.m_CornerGradientColors.Array.data[3].b
-      value: 0.2924527
+      value: 0.29245257
       objectReference: {fileID: 0}
     - target: {fileID: 4497575282598818379, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_GradientEffect.m_CornerGradientColors.Array.data[3].g
-      value: 0.2924527
+      value: 0.29245257
       objectReference: {fileID: 0}
     - target: {fileID: 4497575282598818379, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_GradientEffect.m_CornerGradientColors.Array.data[3].r
-      value: 0.2924527
+      value: 0.29245257
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 008607bcbec617c4397e81af66db6ae9, type: 3}
@@ -2277,7 +2301,7 @@ PrefabInstance:
     - target: {fileID: 1243134915, guid: 008607bcbec617c4397e81af66db6ae9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5261f57aa28ea744eb8c6697bd7edcfc,
+      objectReference: {fileID: 21300000, guid: 8e1f987008ce8df4384e7c603c5c6c6d,
         type: 3}
     - target: {fileID: 1211415367392734486, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
