@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7145866029461580604}
   - component: {fileID: 359280518284683751}
   - component: {fileID: 7581912919929570545}
-  - component: {fileID: 2386580403315806062}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2386580403315806062
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7138116775122418360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5472521897984029910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,7 +96,7 @@ PrefabInstance:
     - target: {fileID: 302799799364685274, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_Name
-      value: (-2, 0)
+      value: Tile_Obstacle_Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3005908411194508963, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
@@ -170,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 8464256074899717969, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
       propertyPath: m_text
-      value: (-2, 0)
+      value: (9, 6)
       objectReference: {fileID: 0}
     - target: {fileID: 8464256074899717969, guid: 7a1334c487187f043b02b29f22ac6d9c,
         type: 3}
