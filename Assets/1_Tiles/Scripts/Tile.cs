@@ -31,6 +31,8 @@ public class Tile : MonoBehaviour
             SetCorrespondingNodeProperties();
         }
 
+        CheckForPreexistingPlaceable();
+
     }
 
     private void SetCorrespondingNodeProperties()
@@ -77,5 +79,27 @@ public class Tile : MonoBehaviour
             placedObject = null;
         }
     }
+
+    /// <summary>
+    /// Not very tidy, added it this way to quicky make room for pre-existinf placeables.
+    /// TODO find a more scalable way of doing this that won't be hell in case more placeable types are added
+    /// </summary>
+    private void CheckForPreexistingPlaceable()
+    {
+        var pool = placeablePool.pool;
+
+        foreach (GameObject go in pool)
+        {
+            Vector2Int gridPos = gridManager.GetGridCoordinatesFromWorldPos(go.transform.position);
+            if (gridPos == coordinates)
+            {
+                placedObject = go;
+
+                go.GetComponent<Placeable>().SetNodeToPlaceableStats(coordinates);
+                return;
+            }
+        }
+    }
+
 
 }

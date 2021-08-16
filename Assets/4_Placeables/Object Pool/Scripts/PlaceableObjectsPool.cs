@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlaceableObjectsPool : MonoBehaviour
 {
     // properties
-    [SerializeField] PlaceablePoolType[] availablePlaceables;
+    [Tooltip ("Any extra placeables needed. All placeables already on tha map will be removable and if removed will be added to available ones.")]
+    [SerializeField] PlaceablePoolType[] availableExtraPlaceables;
 
     // member variables
     [HideInInspector]
@@ -24,8 +25,11 @@ public class PlaceableObjectsPool : MonoBehaviour
     // Start is called before the first frame update
     private void PopulatePool()
     {
+        // add objects that were placed in editor as pre-existing
+        AddPreExistingPlaceablesToPool();
+
         // instantiate prefabs
-        foreach (PlaceablePoolType type in availablePlaceables)
+        foreach (PlaceablePoolType type in availableExtraPlaceables)
         {
             for (int i = 0; i < type.AvailableNumber; i++)
             {
@@ -51,5 +55,22 @@ public class PlaceableObjectsPool : MonoBehaviour
 
         selectedPlaceable = newPlaceable;
     }
+
+    private void AddPreExistingPlaceablesToPool()
+    {
+        foreach (PlaceablePoolType type in availableExtraPlaceables)
+        {
+            GameObject[] preexisting = GameObject.FindGameObjectsWithTag(type.PlaceableTag);
+
+            // add to pool
+            foreach (GameObject go in preexisting)
+            {
+                pool.Add(go);
+            }
+        }
+    }
+
+
+
 }
 

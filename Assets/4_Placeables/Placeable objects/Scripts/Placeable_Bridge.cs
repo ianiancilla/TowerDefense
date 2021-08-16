@@ -9,6 +9,17 @@ public class Placeable_Bridge : MonoBehaviour, Placeable
     Pathfinding_Pathfinder pathfinder;
     PlaceableObjectsPool placeablePool;
 
+    // variables
+    private bool isNodeWalkable = true;
+    public bool IsNodeWalkable { get { return isNodeWalkable; } }
+
+    private bool isNodeHazard = false;
+    public bool IsNodeHazard { get { return isNodeHazard; } }
+
+    private bool isBridge = true;
+    public bool IsBridge { get { return isBridge; } }
+
+
     public bool CanBePlaced(Vector2Int coordinates)
     {
         // needs to be here as methods are called before object is instantiated
@@ -57,6 +68,19 @@ public class Placeable_Bridge : MonoBehaviour, Placeable
 
         this.gameObject.SetActive(false);
     }
+
+    /// <summary>
+    /// Sets the node at coordinates to have the correct stats for this type of placeable
+    /// </summary>
+    public void SetNodeToPlaceableStats(Vector2Int coordinates)
+    {
+        // needs to be here as methods are called before object is instantiated
+        gridManager = FindObjectOfType<Pathfinding_GridManager>();
+
+        gridManager.SetHazard(coordinates, false);
+        gridManager.SetWalkable(coordinates, true);
+    }
+
 
     private GameObject FindObjectInPool()
     {

@@ -43,11 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2b9185c1a4ea24ea197dc96be659d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availablePlaceables:
-  - placeablePrefab: {fileID: 7184212717547874007, guid: 355d963628ca4e542a478f5da6b1f4e9,
-      type: 3}
-    availableNumber: 2
+  availableExtraPlaceables:
   - placeablePrefab: {fileID: 3805380532848697483, guid: e58c7991b777e924588180dbd5324727,
       type: 3}
-    availableNumber: 2
+    placeableTag: Stone
+    availableNumber: 10
+  - placeablePrefab: {fileID: 7184212717547874007, guid: 355d963628ca4e542a478f5da6b1f4e9,
+      type: 3}
+    placeableTag: Bridge
+    availableNumber: 10
   pool: []

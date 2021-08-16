@@ -9,4 +9,7 @@ public interface Placeable
     public GameObject Place(Vector2Int coordinates);
 
     public void Remove(Vector2Int coordinates);
+
+    public void SetNodeToPlaceableStats(Vector2Int coordinates);
+
 }

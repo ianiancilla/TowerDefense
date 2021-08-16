@@ -57,6 +57,10 @@ public class Kodama_Movement : MonoBehaviour
     private IEnumerator FollowPath()
     {
         pathRemaining = path.ToList();
+
+        // in case Kodama is blocked (by pre-existing blocks for example), stop until a new path is calculated
+        if (pathRemaining.Count == 0) { yield break; }
+
         pathRemaining.RemoveAt(0);    // removes starting position as it is already reached by default
 
         // for each step in the path

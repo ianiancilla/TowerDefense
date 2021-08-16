@@ -65,6 +65,17 @@ public class Placeable_Block : MonoBehaviour, Placeable
         this.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Sets the node at coordinates to have the correct stats for this type of placeable
+    /// </summary>
+    public void SetNodeToPlaceableStats(Vector2Int coordinates)
+    {
+        // needs to be here as methods are called before object is instantiated
+        gridManager = FindObjectOfType<Pathfinding_GridManager>();
+
+        gridManager.SetWalkable(coordinates, false);
+    }
+
     private GameObject FindObjectInPool()
     {
         // find object in pool
