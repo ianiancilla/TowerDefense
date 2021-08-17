@@ -75,15 +75,24 @@ public class Kodama_Movement : MonoBehaviour
 
             while (lerpPhase < 1)
             {
-                lerpPhase += speed * Time.deltaTime;
-                transform.position = Vector3.Lerp(startingPosition, targetPosition, lerpPhase);
-
-                if (lerpPhase > hazardCheckPoint)
-                {
-                    CheckForHazard(path[i]);
-                }
-
                 yield return new WaitForEndOfFrame();
+
+                //if (gridManager == null) { continue; }
+
+                int kodamaOnNextTile = gridManager.NumberOfKodamaOnTile(path[i].coordinates);
+                
+                // only move if there is no kodama blocking the path
+                if (kodamaOnNextTile <= 1)
+                {
+                    lerpPhase += speed * Time.deltaTime;
+
+                    transform.position = Vector3.Lerp(startingPosition, targetPosition, lerpPhase);
+
+                    if (lerpPhase > hazardCheckPoint)
+                    {
+                        CheckForHazard(path[i]);
+                    }
+                }
             }
 
             pathRemaining.RemoveAt(0);    // removes node once it is reached

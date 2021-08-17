@@ -56,7 +56,7 @@ public class Tile : MonoBehaviour
     private void OnMouseDown()
     {
         // if there is a kodama on the tile, do nothing
-        if (gridManager.doesTileHaveKodamaOnIt(coordinates)) { return; }
+        if (gridManager.NumberOfKodamaOnTile(coordinates) > 0) { return; }
 
         // if tile is empty, place
         if (placedObject == null)
