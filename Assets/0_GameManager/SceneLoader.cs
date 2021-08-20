@@ -5,9 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] float loadDelay = 1f;
+    [SerializeField] Animator transitionAnimator;
+
+    private const string TRANSITION_TRIGGER_NAME = "FadeToBlack";
+
+
+
+    IEnumerator TransitionToScene(int sceneNumber)
+    {
+        if (transitionAnimator != null)
+        {
+            transitionAnimator.SetTrigger(TRANSITION_TRIGGER_NAME);
+        }
+
+        yield return new WaitForSeconds(loadDelay);
+
+        SceneManager.LoadScene(sceneNumber);
+    }
+
+    // overload for string
+    IEnumerator TransitionToScene(string sceneName)
+    {
+        if (transitionAnimator != null)
+        {
+            transitionAnimator.SetTrigger(TRANSITION_TRIGGER_NAME);
+        }
+
+        yield return new WaitForSeconds(loadDelay);
+
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void ReloadCurrentScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(TransitionToScene(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void LoadNextScene()
@@ -16,7 +48,7 @@ public class SceneLoader : MonoBehaviour
         
         if (SceneManager.sceneCountInBuildSettings > thisSceneIndex + 1)
         {
-            SceneManager.LoadScene(thisSceneIndex + 1);
+            StartCoroutine(TransitionToScene(thisSceneIndex + 1));
         }
         else
         {
@@ -28,11 +60,11 @@ public class SceneLoader : MonoBehaviour
     {
         if (Application.CanStreamedLevelBeLoaded("MainMenu"))
         {
-            SceneManager.LoadScene("MainMenu");
+            StartCoroutine(TransitionToScene("MainMenu"));
         }
         else
         {
-            SceneManager.LoadScene(0);
+            StartCoroutine(TransitionToScene(0));
         }
     }
 
@@ -40,17 +72,17 @@ public class SceneLoader : MonoBehaviour
     {
         if (Application.CanStreamedLevelBeLoaded("Credits"))
         {
-            SceneManager.LoadScene("Credits");
+            StartCoroutine(TransitionToScene("Credits"));
         }
         else
         {
-            SceneManager.LoadScene(0);
+            StartCoroutine(TransitionToScene(0));
         }
     }
-
 
     public void QuitApp()
     {
         Application.Quit();
     }
+
 }
