@@ -7,6 +7,7 @@ TagManager:
   - Shrine
   - Bridge
   - Stone
+  - GameCanvas
   layers:
   - Default
   - TransparentFX

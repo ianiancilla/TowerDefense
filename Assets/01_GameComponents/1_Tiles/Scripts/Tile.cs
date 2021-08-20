@@ -16,12 +16,16 @@ public class Tile : MonoBehaviour
     // cache
     Pathfinding_GridManager gridManager;
     PlaceableObjectsPool placeablePool;
+    GameObject gameCanvasContainer;
+
 
     private void Awake()
     {
         // cache
         gridManager = FindObjectOfType<Pathfinding_GridManager>();
         placeablePool = FindObjectOfType<PlaceableObjectsPool>();
+        gameCanvasContainer = GameObject.FindGameObjectWithTag("GameCanvas");
+
     }
 
     private void Start()
@@ -82,6 +86,8 @@ public class Tile : MonoBehaviour
             placed.Remove(coordinates);
             placedObject = null;
         }
+
+        gameCanvasContainer.BroadcastMessage("RefreshUI");
     }
 
     /// <summary>

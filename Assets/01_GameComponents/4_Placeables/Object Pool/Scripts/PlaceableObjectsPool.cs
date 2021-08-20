@@ -16,9 +16,15 @@ public class PlaceableObjectsPool : MonoBehaviour
     private GameObject selectedPlaceable;
     public GameObject SelectedPlaceable { get { return selectedPlaceable; } }
 
+    // cache
+    GameObject gameCanvasContainer;
+
 
     private void Awake()
     {
+        // cache
+        gameCanvasContainer = GameObject.FindGameObjectWithTag("GameCanvas");
+
         PopulatePool();
     }
 
@@ -43,6 +49,8 @@ public class PlaceableObjectsPool : MonoBehaviour
                 go.SetActive(false);
             }
         }
+
+        BroadcastUIRefresh();
     }
 
     public void SetAsCurrentPlaceable(GameObject newPlaceable)
@@ -54,6 +62,9 @@ public class PlaceableObjectsPool : MonoBehaviour
         }
 
         selectedPlaceable = newPlaceable;
+
+        // broadcase message for UI
+        BroadcastUIRefresh();
     }
 
     private void AddPreExistingPlaceablesToPool()
@@ -70,7 +81,10 @@ public class PlaceableObjectsPool : MonoBehaviour
         }
     }
 
-
+    private void BroadcastUIRefresh()
+    {
+        gameCanvasContainer.BroadcastMessage("RefreshUI");
+    }
 
 }
 
