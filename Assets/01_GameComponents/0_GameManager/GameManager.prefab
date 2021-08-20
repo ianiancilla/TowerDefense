@@ -72,3 +72,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df75dfa26f72d0a4b980c437f2d67b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadDelay: 1
+  transitionAnimator: {fileID: 0}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -55,6 +56,9 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // prevents registering clicks through UI
+        if (EventSystem.current.IsPointerOverGameObject()) { return; }
+
         // if there is a kodama on the tile, do nothing
         if (gridManager.doesTileHaveKodamaOnIt(coordinates)) { return; }
 
