@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
+
 
 public class Placeable_Block : MonoBehaviour, Placeable
 {
+    [SerializeField] MMFeedback placingFeedback;
+    [SerializeField] MMFeedback removingFeedback;
+
+
     // cache
     Pathfinding_GridManager gridManager;
     Pathfinding_Pathfinder pathfinder;
@@ -50,6 +56,13 @@ public class Placeable_Block : MonoBehaviour, Placeable
         placedObject.transform.position = worldPos;
         placedObject.SetActive(true);
 
+        // feedback
+        if (placingFeedback)
+        {
+            placingFeedback.Initialization(this.gameObject);
+            placingFeedback.Play(this.transform.position);
+        }
+
         return placedObject;
     }
 
@@ -61,6 +74,9 @@ public class Placeable_Block : MonoBehaviour, Placeable
 
         gridManager.SetWalkable(coordinates, true);
         pathfinder.BroadcastRecalculatePath();
+
+        // feedback
+        removingFeedback?.Play(this.transform.position);
 
         this.gameObject.SetActive(false);
     }

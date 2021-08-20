@@ -125,7 +125,7 @@ MonoBehaviour:
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
-  PlayMethod: 2
+  PlayMethod: 0
   PoolSize: 10
   MinVolume: 1
   MaxVolume: 1

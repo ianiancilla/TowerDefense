@@ -1961,7 +1961,7 @@ GameObject:
   - component: {fileID: 3621294524170703355}
   m_Layer: 5
   m_Name: GameCanvas
-  m_TagString: Untagged
+  m_TagString: GameCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2257,6 +2257,16 @@ PrefabInstance:
       propertyPath: myPlaceableTag
       value: Stone
       objectReference: {fileID: 0}
+    - target: {fileID: 2993032888258165941, guid: 008607bcbec617c4397e81af66db6ae9,
+        type: 3}
+      propertyPath: selectedOutlineColour.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993032888258165941, guid: 008607bcbec617c4397e81af66db6ae9,
+        type: 3}
+      propertyPath: selectedOutlineColour.b
+      value: 0.82634497
+      objectReference: {fileID: 0}
     - target: {fileID: 4497575282598818379, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_Enabled
@@ -2280,17 +2290,17 @@ PrefabInstance:
     - target: {fileID: 4497575282598818379, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_GradientEffect.m_CornerGradientColors.Array.data[3].b
-      value: 0.2924524
+      value: 0.29245237
       objectReference: {fileID: 0}
     - target: {fileID: 4497575282598818379, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_GradientEffect.m_CornerGradientColors.Array.data[3].g
-      value: 0.2924524
+      value: 0.29245237
       objectReference: {fileID: 0}
     - target: {fileID: 4497575282598818379, guid: 008607bcbec617c4397e81af66db6ae9,
         type: 3}
       propertyPath: m_GradientEffect.m_CornerGradientColors.Array.data[3].r
-      value: 0.2924524
+      value: 0.29245237
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 008607bcbec617c4397e81af66db6ae9, type: 3}
@@ -2732,6 +2742,16 @@ PrefabInstance:
         type: 3}
       propertyPath: myPlaceableTag
       value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993032888258165941, guid: 008607bcbec617c4397e81af66db6ae9,
+        type: 3}
+      propertyPath: selectedOutlineColour.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2993032888258165941, guid: 008607bcbec617c4397e81af66db6ae9,
+        type: 3}
+      propertyPath: selectedOutlineColour.b
+      value: 0.82634497
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 008607bcbec617c4397e81af66db6ae9, type: 3}
