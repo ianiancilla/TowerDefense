@@ -49,8 +49,6 @@ MonoBehaviour:
   isObstacle: 0
   isHazard: 0
   canBeBridged: 0
-  placeableObject: {fileID: 3805380532848697483, guid: e58c7991b777e924588180dbd5324727,
-    type: 3}
   placedObject: {fileID: 0}
 --- !u!65 &3975182427180194250
 BoxCollider:
@@ -83,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &621223876976017707
 RectTransform:
   m_ObjectHideFlags: 0
