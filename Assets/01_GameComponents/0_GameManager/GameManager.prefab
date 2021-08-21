@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 0}
   youWonMenu: {fileID: 0}
+  levelEndDelay: 1
 --- !u!114 &502512128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,3 +75,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause_UnpauseButton: 32
+  tutorial_toggleButton: 116
+  tutorialActiveAtStart: 1
