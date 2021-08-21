@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     // properties
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject youWonMenu;
+    [SerializeField] float levelEndDelay = 1f;
 
     // variables
     int totalKodama;
@@ -25,6 +26,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        StartCoroutine(PlayGameOverSequence());
+    }
+
+    IEnumerator PlayGameOverSequence()
+    {
+        yield return new WaitForSecondsRealtime(levelEndDelay);
+
         // pause game
         GetComponent<PauseAndTutorial>().GamePause();
         gameOverMenu.SetActive(true);
@@ -35,12 +43,13 @@ public class GameManager : MonoBehaviour
         savedKodama++;
         if (savedKodama >= totalKodama)
         {
-            WinGame();
+            StartCoroutine( WinGame());
         }
     }
 
-    private void WinGame()
+    IEnumerator WinGame()
     {
+        yield return new WaitForSecondsRealtime(levelEndDelay);
         youWonMenu.SetActive(true);
     }
 

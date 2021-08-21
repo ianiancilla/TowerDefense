@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(Kodama_Health))]
+[RequireComponent(typeof(Kodama))]
 public class Kodama_Movement : MonoBehaviour
 {
     [Tooltip("Tiles per second")] [SerializeField] [Range(0f, 5f)] float speed = 1f;
@@ -22,7 +22,7 @@ public class Kodama_Movement : MonoBehaviour
     // cache
     Pathfinding_GridManager gridManager;
     Pathfinding_Pathfinder pathfinder;
-    Kodama_Health myHealth;
+    Kodama myKodama;
 
 
     private void Awake()
@@ -30,7 +30,7 @@ public class Kodama_Movement : MonoBehaviour
         // cache
         gridManager = FindObjectOfType<Pathfinding_GridManager>();
         pathfinder = FindObjectOfType<Pathfinding_Pathfinder>();
-        myHealth = GetComponent<Kodama_Health>();
+        myKodama = GetComponent<Kodama>();
     }
 
     // Update is called once per frame
@@ -63,8 +63,9 @@ public class Kodama_Movement : MonoBehaviour
 
         pathRemaining.RemoveAt(0);    // removes starting position as it is already reached by default
 
-        // for each step in the path
-        for (int i = 1; i < path.Count; i++)
+        // for each step in the path, except for the last one,
+        // so they can play arriving event while not clipping inside the Shrine
+        for (int i = 1; i < path.Count - 1; i++)
         {
             Vector3 startingPosition = transform.position;
             Vector3 targetPosition = gridManager.GetWorldPosFromGridCoordinates(path[i].coordinates);
@@ -89,7 +90,12 @@ public class Kodama_Movement : MonoBehaviour
             pathRemaining.RemoveAt(0);    // removes node once it is reached
 
         }
-        ReachEndOfPath();
+
+        // look towards shrine before playing arrival
+        Vector3 shrinePos = gridManager.GetWorldPosFromGridCoordinates(path[path.Count - 1].coordinates);
+        transform.LookAt(shrinePos);
+
+        StartCoroutine(myKodama.ReachEndOfPath());
     }
 
     private void CheckForHazard(Pathfinding_Node nextNode)
@@ -97,17 +103,9 @@ public class Kodama_Movement : MonoBehaviour
         // check if death due to hazard
         if (nextNode.IsHazard)
         {
-            myHealth.Die();
+            myKodama.Die();
             Debug.Log(this.gameObject.name + " died at " + nextNode.coordinates + nextNode.IsHazard.ToString());
         }
-    }
-
-    private void ReachEndOfPath()
-    {
-        FindObjectOfType<GameManager>().ScoreKodama();
-        
-        // send back to the pool
-        gameObject.SetActive(false);
     }
 
 }
