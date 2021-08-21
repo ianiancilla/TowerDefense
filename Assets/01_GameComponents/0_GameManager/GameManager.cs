@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(PauseFunction))]
+[RequireComponent (typeof(PauseAndTutorial))]
 public class GameManager : MonoBehaviour
 {
     // properties
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         // pause game
-        GetComponent<PauseFunction>().GamePause();
+        GetComponent<PauseAndTutorial>().GamePause();
         gameOverMenu.SetActive(true);
     }
 

@@ -3486,18 +3486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df75dfa26f72d0a4b980c437f2d67b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &502512129 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4887371291510339987, guid: 7c21000afe3a3e047ada2f160fa1146d,
-    type: 3}
-  m_PrefabInstance: {fileID: 4887371292593506234}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8159ed94fd6f684e8f1a7b6d22dec3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &519514345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10999,11 +10987,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Strategy Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 7531876953357348134, guid: 4342c07a9c16e0f44b8ff5234168ce76,
-        type: 3}
-      propertyPath: MaxPosition.z
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 7531876953357348135, guid: 4342c07a9c16e0f44b8ff5234168ce76,
         type: 3}
       propertyPath: m_RootOrder
@@ -11474,11 +11457,6 @@ PrefabInstance:
       objectReference: {fileID: 1357696950}
     - target: {fileID: 3540202975780847036, guid: 872b18ae2d6ca2042964cd27eef253fc,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 502512129}
-    - target: {fileID: 3540202975780847036, guid: 872b18ae2d6ca2042964cd27eef253fc,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 502512128}
@@ -11497,11 +11475,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 502512128}
-    - target: {fileID: 3621294523599498238, guid: 872b18ae2d6ca2042964cd27eef253fc,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 502512129}
     - target: {fileID: 3621294523599498238, guid: 872b18ae2d6ca2042964cd27eef253fc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -11787,6 +11760,16 @@ PrefabInstance:
       propertyPath: transitionAnimator
       value: 
       objectReference: {fileID: 1533433660}
+    - target: {fileID: 3756979701095486030, guid: 7c21000afe3a3e047ada2f160fa1146d,
+        type: 3}
+      propertyPath: tutorialActiveAtStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756979701095486030, guid: 7c21000afe3a3e047ada2f160fa1146d,
+        type: 3}
+      propertyPath: tutorial_toggleButton
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 4887371291510339984, guid: 7c21000afe3a3e047ada2f160fa1146d,
         type: 3}
       propertyPath: m_RootOrder

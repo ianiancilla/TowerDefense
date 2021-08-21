@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7531876953120939858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1541747353}
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HorizontalOrbitingAxis: Mouse X
   VerticalOrbitingAxis: Mouse Y
-  OrbitingMouseButton: 2
+  OrbitingMouseButton: 1
   InvertVertical: 0
   InvertHorizontal: 0
   HorizontalRotateSpeed: 4
@@ -181,14 +181,14 @@ MonoBehaviour:
   DraggingSpeed: 1
   ConstrainPosition: 1
   MinPosition: {x: 0, y: 0, z: 0}
-  MaxPosition: {x: 40, y: 1, z: 35}
+  MaxPosition: {x: 40, y: 1, z: 50}
   InputAxisZoom: Mouse ScrollWheel
   InvertZooming: 0
   ZoomSensitivity: 8
   ZoomInterpolationSpeed: 10
   MinZoomDistance: 1
   MaxZoomDistance: 25
-  StartingZoom: 15
+  StartingZoom: 17
   PreventClipping: 0
   ClippingDistance: 0
   ClippingMask:

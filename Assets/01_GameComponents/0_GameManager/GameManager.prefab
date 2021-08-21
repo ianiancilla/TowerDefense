@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4887371291510339984}
-  - component: {fileID: 4887371291510339987}
   - component: {fileID: 502512127}
   - component: {fileID: 502512128}
+  - component: {fileID: 3756979701095486030}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4887371291510339987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4887371291510339986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8159ed94fd6f684e8f1a7b6d22dec3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pause_UnpauseButton: 32
 --- !u!114 &502512127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,3 +61,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadDelay: 1
   transitionAnimator: {fileID: 0}
+--- !u!114 &3756979701095486030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4887371291510339986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1831bc68de5ba148a8ed029c81dd914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pause_UnpauseButton: 32
