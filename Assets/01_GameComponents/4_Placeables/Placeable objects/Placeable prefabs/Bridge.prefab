@@ -63,12 +63,12 @@ PrefabInstance:
     - target: {fileID: 1463638781682830400, guid: b6d0e7df4153a6641b610a9524796006,
         type: 3}
       propertyPath: MaxVolume
-      value: 0.06
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 1463638781682830400, guid: b6d0e7df4153a6641b610a9524796006,
         type: 3}
       propertyPath: MinVolume
-      value: 0.6
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1463638781682830400, guid: b6d0e7df4153a6641b610a9524796006,
         type: 3}
@@ -242,6 +242,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4090521281502511119}
     m_Modifications:
+    - target: {fileID: 1463638781682830400, guid: ab73033971711864d97060c2846d5d55,
+        type: 3}
+      propertyPath: MaxVolume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463638781682830400, guid: ab73033971711864d97060c2846d5d55,
+        type: 3}
+      propertyPath: MinVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4135992418660033095, guid: ab73033971711864d97060c2846d5d55,
         type: 3}
       propertyPath: m_Name
