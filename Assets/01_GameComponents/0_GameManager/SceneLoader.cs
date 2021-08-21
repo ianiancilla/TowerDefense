@@ -19,7 +19,10 @@ public class SceneLoader : MonoBehaviour
             transitionAnimator.SetTrigger(TRANSITION_TRIGGER_NAME);
         }
 
-        yield return new WaitForSeconds(loadDelay);
+        yield return new WaitForSecondsRealtime(loadDelay);
+
+        // unpause the game if it is paused
+        Time.timeScale = 1;
 
         SceneManager.LoadScene(sceneNumber);
     }
@@ -32,7 +35,10 @@ public class SceneLoader : MonoBehaviour
             transitionAnimator.SetTrigger(TRANSITION_TRIGGER_NAME);
         }
 
-        yield return new WaitForSeconds(loadDelay);
+        yield return new WaitForSecondsRealtime(loadDelay);
+
+        // unpause the game if it is paused
+        Time.timeScale = 1;
 
         SceneManager.LoadScene(sceneName);
     }
