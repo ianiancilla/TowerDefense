@@ -11750,6 +11750,11 @@ PrefabInstance:
       propertyPath: transitionAnimator
       value: 
       objectReference: {fileID: 1533433660}
+    - target: {fileID: 3756979701095486030, guid: 7c21000afe3a3e047ada2f160fa1146d,
+        type: 3}
+      propertyPath: tutorialActiveAtStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4887371291510339984, guid: 7c21000afe3a3e047ada2f160fa1146d,
         type: 3}
       propertyPath: m_RootOrder
