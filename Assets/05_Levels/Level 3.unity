@@ -4359,18 +4359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df75dfa26f72d0a4b980c437f2d67b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &502512129 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4887371291510339987, guid: 7c21000afe3a3e047ada2f160fa1146d,
-    type: 3}
-  m_PrefabInstance: {fileID: 4887371292593506234}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8159ed94fd6f684e8f1a7b6d22dec3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &519514345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13464,70 +13452,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1806869235}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1834211233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1834211235}
-  - component: {fileID: 1834211234}
-  m_Layer: 0
-  m_Name: Terrain
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
---- !u!218 &1834211234
-Terrain:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834211233}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_TerrainData: {fileID: 0}
-  m_TreeDistance: 5000
-  m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
-  m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
-  m_DetailObjectDensity: 1
-  m_HeightmapPixelError: 5
-  m_SplatMapDistance: 1000
-  m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 2
-  m_DrawHeightmap: 1
-  m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
-  m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
-  m_BakeLightProbesForTrees: 1
-  m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 1
-  m_ScaleInLightmap: 0.0256
-  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
-  m_GroupingID: 0
-  m_RenderingLayerMask: 1
-  m_AllowAutoConnect: 1
---- !u!4 &1834211235
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834211233}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 0.22, z: -35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1835624512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14577,6 +14501,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4e66280a305e94f91a41dcbd751fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1960282259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960282262}
+  - component: {fileID: 1960282261}
+  - component: {fileID: 1960282260}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!154 &1960282260
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960282259}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 4eb69fd88fd45c448b89506a523fb48b, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &1960282261
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960282259}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_TerrainData: {fileID: 15600000, guid: 4eb69fd88fd45c448b89506a523fb48b, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 2
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ScaleInLightmap: 0.51457936
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_RenderingLayerMask: 1
+  m_AllowAutoConnect: 1
+--- !u!4 &1960282262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960282259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: -0.01, z: -2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1979437046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14902,7 +14902,7 @@ PrefabInstance:
     - target: {fileID: 3684851211642892325, guid: 1edebd5b950ff784cbac52f01dfe93ee,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3684851211642892325, guid: 1edebd5b950ff784cbac52f01dfe93ee,
         type: 3}
@@ -14998,6 +14998,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TransitionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684851211642892377, guid: 1edebd5b950ff784cbac52f01dfe93ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1edebd5b950ff784cbac52f01dfe93ee, type: 3}
@@ -16711,7 +16716,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 502512129}
+      objectReference: {fileID: 0}
     - target: {fileID: 3540202975780847036, guid: 872b18ae2d6ca2042964cd27eef253fc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -16732,11 +16737,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 502512128}
+    - target: {fileID: 3621294523586110016, guid: 872b18ae2d6ca2042964cd27eef253fc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3621294523599498238, guid: 872b18ae2d6ca2042964cd27eef253fc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 502512129}
+      objectReference: {fileID: 0}
     - target: {fileID: 3621294523599498238, guid: 872b18ae2d6ca2042964cd27eef253fc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -16943,7 +16953,7 @@ PrefabInstance:
     - target: {fileID: 337574088543255055, guid: cbebe0bed084d9b42af8a987615ff4e5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 337574088543255055, guid: cbebe0bed084d9b42af8a987615ff4e5,
         type: 3}
@@ -17105,6 +17115,16 @@ PrefabInstance:
         type: 3}
       propertyPath: availablePlaceables.Array.data[1].availableNumber
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875371078035119810, guid: d451f2f9a494bd14cb5971cbf6dccdd1,
+        type: 3}
+      propertyPath: availableExtraPlaceables.Array.data[0].availableNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875371078035119810, guid: d451f2f9a494bd14cb5971cbf6dccdd1,
+        type: 3}
+      propertyPath: availableExtraPlaceables.Array.data[1].availableNumber
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6875371078035119811, guid: d451f2f9a494bd14cb5971cbf6dccdd1,
         type: 3}

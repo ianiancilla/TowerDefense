@@ -17,6 +17,9 @@ public class Pathfinding_LineVisualisation : MonoBehaviour
         gridManager = FindObjectOfType<Pathfinding_GridManager>();
         myMovement = transform.parent.GetComponent<Kodama_Movement>();
         lr = GetComponent<LineRenderer>();
+
+        // set random color
+        lr.colorGradient = FindRandomPathColor();
     }
 
     // Update is called once per frame
@@ -55,4 +58,37 @@ public class Pathfinding_LineVisualisation : MonoBehaviour
         lr.SetPositions(lineVertexes);
     }
 
+    private Gradient FindRandomPathColor()
+    {
+        Gradient gradient = new Gradient();
+
+        Color randomColor = Random.ColorHSV(0f, 1f,    // hue
+                                            0.8f, 1f,  // saturation
+                                            0.6f, 1f); // value
+
+        // Populate the color keys at the relative time 0 and 1 (0 and 100%)
+        GradientColorKey[] colorKey = new GradientColorKey[2];
+        colorKey[0].color = randomColor;
+        colorKey[0].time = 0.0f;
+        colorKey[1].color = randomColor;
+        colorKey[1].time = 1.0f;
+
+        // Populate the alpha  keys at relative time 0 and 1  (0 and 100%)
+        GradientAlphaKey[] alphaKey = new GradientAlphaKey[4];
+        alphaKey[0].alpha = 0.0f;
+        alphaKey[0].time = 0f;
+
+        alphaKey[1].alpha = 1.0f;
+        alphaKey[1].time = 0.05f;
+        
+        alphaKey[2].alpha = 1.0f;
+        alphaKey[2].time = 0.95f;
+        
+        alphaKey[3].alpha = 0.0f;
+        alphaKey[3].time = 1.0f;
+
+        gradient.SetKeys(colorKey, alphaKey);
+
+        return gradient;
+    }
 }

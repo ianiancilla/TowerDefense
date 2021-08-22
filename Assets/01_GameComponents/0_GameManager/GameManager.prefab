@@ -76,4 +76,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause_UnpauseButton: 32
   tutorial_toggleButton: 116
-  tutorialActiveAtStart: 1
+  tutorialActiveAtStart: 0
