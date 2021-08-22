@@ -14978,7 +14978,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 200
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -33410,7 +33410,7 @@ PrefabInstance:
     - target: {fileID: 6875371078035119810, guid: d451f2f9a494bd14cb5971cbf6dccdd1,
         type: 3}
       propertyPath: availableExtraPlaceables.Array.data[0].availableNumber
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6875371078035119810, guid: d451f2f9a494bd14cb5971cbf6dccdd1,
         type: 3}

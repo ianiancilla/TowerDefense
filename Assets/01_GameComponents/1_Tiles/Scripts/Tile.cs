@@ -30,6 +30,11 @@ public class Tile : MonoBehaviour
 
     private void Start()
     {
+        // fix placement imperfections
+        transform.position = new Vector3(Mathf.RoundToInt(transform.position.x),
+                                         0,
+                                         Mathf.RoundToInt(transform.position.z));
+
         if (gridManager != null)
         {
             coordinates = gridManager.GetGridCoordinatesFromWorldPos(this.transform.position);

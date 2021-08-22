@@ -58,7 +58,7 @@ Material:
     - _CornerGradientColor0: {r: 1, g: 1, b: 1, a: 0.39215687}
     - _CornerGradientColor1: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
     - _CornerGradientColor2: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 0.7058824}
-    - _CornerGradientColor3: {r: 0.29245177, g: 0.29245177, b: 0.29245177, a: 1}
+    - _CornerGradientColor3: {r: 0.2924518, g: 0.2924518, b: 0.2924518, a: 1}
     - _GradientAlpha0: {r: 1, g: 0, b: 0, a: 0}
     - _GradientAlpha1: {r: 1, g: 1, b: 0, a: 0}
     - _GradientAlpha2: {r: 0, g: 0, b: 0, a: 0}
