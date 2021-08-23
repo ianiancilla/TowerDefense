@@ -532,7 +532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Joachim Lust
+  m_text: Joachim Lust  ?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33009e27d4bd55745848f8d3995707dd, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 0e63fcf8068303b438f710afbc9b2074, type: 2}

@@ -56,7 +56,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 27
+  m_AdditionalShaderChannelsFlag: 3
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 3684851211855778632}
   - component: {fileID: 3684851211855778639}
   - component: {fileID: 3684851211855778638}
+  - component: {fileID: 2204911118686945553}
   m_Layer: 5
   m_Name: CrossFadeGroup
   m_TagString: Untagged
@@ -208,3 +209,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2204911118686945553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684851211855778636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6adb430a145471547963ada045f3e8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
