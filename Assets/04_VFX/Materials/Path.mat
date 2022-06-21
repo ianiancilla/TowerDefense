@@ -133,7 +133,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
-    - Color_83fe8d3b75ef4569995c589a755b329d: {r: 8, g: 8, b: 8, a: 0}
+    - Color_83fe8d3b75ef4569995c589a755b329d: {r: 1.4980392, g: 1.4980392, b: 1.4980392,
+        a: 0}
     - Vector2_957cfff7aeec4b01944a1f0f2cfabdea: {r: -2, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
